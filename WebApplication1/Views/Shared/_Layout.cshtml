@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
      <meta charset="utf-8" />
@@ -8,12 +10,20 @@
      <meta content="Coderthemes" name="author" />
      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
      <!-- App favicon -->
-     <link rel="shortcut icon" href="assets/images/favicon.ico">
+     <link rel="shortcut icon" href="assets?images/favicon.ico">
 
      <!-- App css -->
-     <link href="~/Templaid/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+     <!-- <link href="~/Templaid/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
      <link href="~/Templaid/css/icons.min.css" rel="stylesheet" type="text/css" />
-     <link href="~/Templaid/css/app.min.css" rel="stylesheet" type="text/css" />
+     <link href="~/Templaid/css/app.min.css" rel="stylesheet" type="text/css" />-->
+
+     @Styles.Render("~/bundles/css")
+     @Styles.Render("~/bundles/app/css")
+
+     @if (IsSectionDefined("Styles"))
+     {
+     @RenderSection("Styles", required: false )
+     }
 
 </head>
 
