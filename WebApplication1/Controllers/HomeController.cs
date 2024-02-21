@@ -13,5 +13,14 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-    }
+          public ActionResult Dashboard2()
+          {
+               return View();
+          }
+
+          public ActionResult Charts()
+          {
+               return View();
+          }
+     }
 }

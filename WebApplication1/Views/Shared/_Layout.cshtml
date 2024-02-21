@@ -33,9 +33,19 @@
      <header id="topnav">
           @Html.Partial("_Header")
      </header>
+     
+     <div class="wrapper">
+          @RenderBody()
+     </div>
 
-     @RenderBody()
 
-<</body>
+          <footer class="footer">
+               @Html.Partial("_Footer")
+          </footer>
+
+
+
+
+</body>
 
 <</html>
