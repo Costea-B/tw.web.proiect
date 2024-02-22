@@ -13,14 +13,33 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-          public ActionResult Dashboard2()
+        public ActionResult Dashboard2()
           {
                return View();
           }
-
-          public ActionResult Charts()
+        public ActionResult Charts()
           {
                return View();
           }
-     }
+        public ActionResult Calendar()
+          {
+            return View();
+          }
+        public ActionResult Companies()
+        {
+            return View();
+        }
+        public ActionResult FileManager()
+        {
+            return View();
+        }
+        public ActionResult Tickets()
+        {
+            return View();
+        }
+        public ActionResult TeamMembers()
+        {
+            return View();
+        }
+    }
 }
