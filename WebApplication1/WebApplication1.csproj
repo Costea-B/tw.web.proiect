@@ -562,6 +562,16 @@
     <Folder Include="Models\" />
     <Folder Include="Views\BundelConfig\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebAplication.BusinessLogics\WebAplication.BusinessLogics.csproj">
+      <Project>{994660f8-8e51-444c-8892-c0ece54c8c32}</Project>
+      <Name>WebAplication.BusinessLogics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebAplication.Domains\WebAplication.Domains.csproj">
+      <Project>{cf07b7eb-c122-4aea-8cf0-bf9c2b630082}</Project>
+      <Name>WebAplication.Domains</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

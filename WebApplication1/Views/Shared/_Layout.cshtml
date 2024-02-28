@@ -33,7 +33,7 @@
      <header id="topnav">
           @Html.Partial("_Header")
      </header>
-     
+
      <div class="wrapper">
           @RenderBody()
      </div>
@@ -43,6 +43,20 @@
      </footer>
 
 
+     @Scripts.Render("~/vendor/js")
+
+     @Scripts.Render("~/app/js")
+
+     @Scripts.Render("~/index/js")
+
+     @Scripts.Render("~/dashbord/js")
+
+     @Scripts.Render("~/calendar/js")
+
+     @Scripts.Render("~/companies/js")
+
+
+     @RenderSection("Scripts", required: false)
 
 
 </body>
