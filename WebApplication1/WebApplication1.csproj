@@ -459,8 +459,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundelConfig.cs" />
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -555,6 +553,7 @@
     <Content Include="Views\Home\Pages_Login.cshtml" />
     <Content Include="Views\Home\Pages_Register.cshtml" />
     <Content Include="Views\Home\Pages_Lock_Screen.cshtml" />
+    <Content Include="Views\Shared\_NotFooterHeader.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
