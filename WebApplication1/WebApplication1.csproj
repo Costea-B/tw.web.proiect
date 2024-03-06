@@ -461,9 +461,11 @@
     <Compile Include="App_Start\BundelConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\User\UserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -550,9 +552,9 @@
     <Content Include="Views\Home\FileManager.cshtml" />
     <Content Include="Views\Home\Tickets.cshtml" />
     <Content Include="Views\Home\TeamMembers.cshtml" />
-    <Content Include="Views\Home\Pages_Login.cshtml" />
-    <Content Include="Views\Home\Pages_Register.cshtml" />
-    <Content Include="Views\Home\Pages_Lock_Screen.cshtml" />
+    <Content Include="Views\Login\Pages_Login.cshtml" />
+    <Content Include="Views\Login\Pages_Register.cshtml" />
+    <Content Include="Views\Login\Pages_Lock_Screen.cshtml" />
     <Content Include="Views\Shared\_NotFooterHeader.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -563,8 +565,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\BundelConfig\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WebAplication.BusinessLogics\WebAplication.BusinessLogic.csproj">

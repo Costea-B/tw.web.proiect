@@ -41,17 +41,6 @@ namespace WebApplication1.Controllers
           {
                return View();
           }
-          public ActionResult Pages_Login()
-          {
-               return View();
-          }
-          public ActionResult Pages_Register()
-          {
-               return View();
-          }
-          public ActionResult Pages_Lock_Screen()
-          {
-               return View();
-          }
+        
      }
 }
