@@ -3,7 +3,8 @@
      ViewBag.Title = "Pages_Login";
     Layout = "~/Views/Shared/_NotFooterHeader.cshtml";
 }
-
+@using (Html.BeginForm("Pages_Login", "Login", FormMethod.Post))
+{
 <div class="account-pages mt-5 mb-5">
      <div class="container">
           <div class="row justify-content-center">
@@ -16,19 +17,24 @@
                                    <a href="index.html">
                                         <span><img src="assets/images/logo-light.png" alt="" height="22"></span>
                                    </a>
-                                   <p class="text-muted mb-4 mt-3">Enter your email address and password to access admin panel.</p>
+                                   <p class="text-muted mb-4 mt-3">Enter your username and password to access admin panel.</p>
                               </div>
 
                               <form action="#">
 
                                    <div class="form-group mb-3">
-                                        <label for="emailaddress">Email address</label>
-                                        <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                        <label for="username">UserName</label>
+                                        <input class="form-control" type="text" id="emailaddress" required="" placeholder="Introduceți-vă numele de utilizator " name="UserName" >
+
                                    </div>
 
                                    <div class="form-group mb-3">
+                                        
                                         <label for="password">Password</label>
-                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                        <input class="form-control" type="password" required id="password" placeholder="Enter your password" name="Password">
+
+
+
                                    </div>
 
                                    <div class="form-group mb-3">
@@ -81,3 +87,4 @@
      <!-- end container -->
 </div>
 
+}
