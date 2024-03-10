@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Models.User;
 
 namespace WebApplication1.Controllers
 {
@@ -41,6 +42,12 @@ namespace WebApplication1.Controllers
           {
                return View();
           }
-        
+
+          [HttpPost]
+          public ActionResult Index(UserData obj_emp)
+          {
+               return View();
+          }
+
      }
 }

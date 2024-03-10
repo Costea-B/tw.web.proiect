@@ -52,6 +52,18 @@ namespace WebApplication1
                 url: "Home/TeamMembers",
                 defaults: new { controller = "Home", action = "TeamMembers" }
             );
-        }
+
+               routes.MapRoute(
+                     name: "Pages_Login",
+                     url: "Home/Pages_Login",
+                     defaults: new { controller = "Home", action = "Pages_Login" }
+                 );
+
+               routes.MapRoute(
+                name: "Pages_register",
+                url: "Home/Pages_register",
+                defaults: new { controller = "Home", action = "Pages_register" }
+                );
+          }
     }
 }

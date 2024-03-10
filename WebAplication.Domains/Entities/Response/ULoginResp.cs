@@ -8,7 +8,6 @@ namespace WebAplication.Domains.Entities.Response
 {
      public class ULoginResp
      {
-          public string Status {  get; set; }
           public bool IsSuccess { get; set; }
      }
 }

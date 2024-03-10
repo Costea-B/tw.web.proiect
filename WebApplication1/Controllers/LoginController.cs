@@ -29,34 +29,33 @@ namespace WebApplication1.Controllers
              return View();
         }
 
-          public ActionResult Pages_Logins(UserData data)
+          public ActionResult Pages_Register()
+        {
+             return View();
+        }
+          //public ActionResult Pages_Lock_Screen()
+          //{
+          //     return View();
+          //}
+          [HttpPost]
+      
+          public ActionResult Pages_Login(UserData obj_emp)
           {
                var UData = new ULoginData
                {
-                    UserName = data.UserName,
-                    Password = data.Password,
+                    UserName = obj_emp.UserName,
+                    Password = obj_emp.Password,
                     LoginDataTime = DateTime.Now,
                };
 
                ULoginResp resp = _sesion.UserLoginAction(UData);
 
-               return View();
+
+               return Redirect("/Login/Pages_Lock_Screen");
           }
 
-          public ActionResult Pages_Register()
-        {
-             return View();
-        }
           public ActionResult Pages_Lock_Screen()
           {
-               return View();
-          }
-          [HttpPost]
-      
-          public ActionResult Pages_Login(UserData obj_emp)
-          {
-               string username = obj_emp.UserName;
-               string password = obj_emp.Password;
                return View();
           }
 
