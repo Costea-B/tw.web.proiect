@@ -25,8 +25,7 @@ namespace WebAplication.Domain.Entities.User
         [StringLength(30)]
         public string Email { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime LastLogin { get; set; }
+       
 
         [StringLength(30)]
         public string LastIp { get; set; }
