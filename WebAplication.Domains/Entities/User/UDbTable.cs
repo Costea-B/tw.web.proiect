@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAplication.Domain.Entities.User
 {
-    class UDbTable
+     public class UDbTable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -17,7 +17,7 @@ namespace WebAplication.Domain.Entities.User
 
         [Required]
         [Display(Name = "Password")]
-        [StringLength(50, MinimumLength = 8, ErrorMessage = "Password cannot be longer than 30 characters.")]
+        [StringLength(50, ErrorMessage = "Password cannot be longer than 30 characters.")]
         public string Password { get; set; }
 
         [Required]
@@ -30,7 +30,6 @@ namespace WebAplication.Domain.Entities.User
         [StringLength(30)]
         public string LastIp { get; set; }
 
-        public URole Level { get; set; }
 
     }
 }

@@ -492,10 +492,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\User\UserData.cs" />
+    <Compile Include="Models\User\UserDataRegist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -561,7 +563,7 @@
     <Content Include="Views\Home\Tickets.cshtml" />
     <Content Include="Views\Home\TeamMembers.cshtml" />
     <Content Include="Views\Login\Pages_Login.cshtml" />
-    <Content Include="Views\Login\Pages_Register.cshtml" />
+    <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Login\Pages_Lock_Screen.cshtml" />
     <Content Include="Views\Shared\_NotFooterHeader.cshtml" />
     <None Include="Web.Debug.config">
@@ -615,12 +617,12 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Web.WebJobs.Publish.17.1.361\build\Microsoft.Web.WebJobs.Publish.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.WebJobs.Publish.17.1.361\build\Microsoft.Web.WebJobs.Publish.targets'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.Web.WebJobs.Publish.17.1.361\build\Microsoft.Web.WebJobs.Publish.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.WebJobs.Publish.17.1.361\build\Microsoft.Web.WebJobs.Publish.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <Import Project="..\packages\Microsoft.Web.WebJobs.Publish.17.1.361\build\Microsoft.Web.WebJobs.Publish.targets" Condition="Exists('..\packages\Microsoft.Web.WebJobs.Publish.17.1.361\build\Microsoft.Web.WebJobs.Publish.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

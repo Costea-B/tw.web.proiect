@@ -17,5 +17,11 @@ namespace WebAplication.BusinessLogics.AppBL
                return RLoginUPService(data);
           }
 
+           public ULoginResp UserRegistAction(URegistdata data)
+          {
+               return RRegistUPService(data);
+          }
+
+          
      }
 }

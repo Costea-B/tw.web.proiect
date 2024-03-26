@@ -54,6 +54,7 @@
     <Compile Include="Entities\Response\ULoginResp.cs" />
     <Compile Include="Entities\User\UDbTable.cs" />
     <Compile Include="Entities\User\ULoginData.cs" />
+    <Compile Include="Entities\User\URegistdata.cs" />
     <Compile Include="Entities\User\URole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

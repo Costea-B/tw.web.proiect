@@ -11,5 +11,7 @@ namespace WebAplication.BusinessLogics.Interface
      public interface ILogin
      {
           ULoginResp UserLoginAction(ULoginData data);
+          ULoginResp UserRegistAction(URegistdata data);
+
      }
 }
