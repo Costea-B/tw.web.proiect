@@ -9,5 +9,6 @@ namespace WebAplication.Domains.Entities.Response
      public class ULoginResp
      {
           public bool IsSuccess { get; set; }
+          public string Msg { get; set; }
      }
 }

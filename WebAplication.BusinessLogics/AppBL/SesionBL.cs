@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
 using System.Threading.Tasks;
 using WebAplication.BusinessLogics.Core;
 using WebAplication.BusinessLogics.Interface;
@@ -10,7 +11,7 @@ using WebAplication.Domains.Entities.User;
 
 namespace WebAplication.BusinessLogics.AppBL
 {
-     public class AuthenticatorBL : UserApi, ILogin 
+     public class SesionBL : UserApi, ILogin 
      {
          public ULoginResp UserLoginAction(ULoginData data)
           {
@@ -22,6 +23,14 @@ namespace WebAplication.BusinessLogics.AppBL
                return RRegistUPService(data);
           }
 
-          
+          public HttpCookie GenCookie(string username)
+          {
+               return Cookie(username);
+          }
+
+          public User GetUserByCookie(string apiCookieValue)
+          {
+               return GetCookie(apiCookieValue);
+          }
      }
 }

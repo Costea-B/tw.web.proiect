@@ -12,7 +12,7 @@ namespace WebAplication.BusinessLogics
      {
           public ILogin GetLoginBL()
           {    
-               return new AuthenticatorBL();
+               return new SesionBL();
           }
 
      }
