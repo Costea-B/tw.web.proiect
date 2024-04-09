@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WebAplication.Domains.Entities.User;
 
 namespace WebAplication.Domain.Entities.User
 {
@@ -25,11 +26,12 @@ namespace WebAplication.Domain.Entities.User
         [StringLength(30)]
         public string Email { get; set; }
 
-       
-
         [StringLength(30)]
         public string LastIp { get; set; }
 
+        public DateTime RegistData { get; set; }
+
+        public URole Level { get; set; }
 
     }
 }

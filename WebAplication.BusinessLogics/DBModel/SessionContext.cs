@@ -9,13 +9,13 @@ using WebAplication.Domains.Entities.User;
 
 namespace WebAplication.BusinessLogics.DBModel
 {
-     public class SessionContext : DbContext
-     {
-          public SessionContext() :
-              base("name = WebAplication")
-          {
-          }
-          public virtual DbSet<Session> Sessions { get; set; }
+        public class SessionContext : DbContext
+        {
+        public SessionContext() :
+            base("name = WebApplication")
+        {
+        }
+        public virtual DbSet<Session> Sessions { get; set; }
 
-     }
+        }
 }

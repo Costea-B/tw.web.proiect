@@ -8,9 +8,10 @@ namespace WebAplication.Domains.Entities.User
 {
      public class URegistdata
      {
-          public string UserName { get; set; }
-          public string Password { get; set; }
-          public string Email { get; set; }
-          public DateTime LoginDataTime { get; set; }
-     }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public string IP { get; set; }
+        public DateTime LoginDataTime { get; set; }
+    }
 }

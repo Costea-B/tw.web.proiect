@@ -23,14 +23,13 @@ namespace WebAplication.BusinessLogics.AppBL
                return RRegistUPService(data);
           }
 
-          public HttpCookie GenCookie(string username)
+            public HttpCookie GenCookie(string username)
           {
-               return Cookie(username);
-          }
-
-          public User GetUserByCookie(string apiCookieValue)
-          {
-               return GetCookie(apiCookieValue);
-          }
-     }
+            return Cookie(username);
+           }
+            public User GetUserByCookie(string apiCookieValue)
+           {
+            return GetCookie(apiCookieValue);
+           }
+    }
 }

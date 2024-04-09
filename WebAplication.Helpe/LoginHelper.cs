@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace WebAplication.Helpe
 {
-     public class LoginHelper
-     {
-          public static string HashGen(string password)
-          {
-               MD5 md5 = new MD5CryptoServiceProvider();
-               var originalBytes = Encoding.Default.GetBytes(password + "webproject");
-               var encodedBytes = md5.ComputeHash(originalBytes);
+        public class LoginHelper
+        {
+            public static string HashGen(string password)
+            {
+                MD5 md5 = new MD5CryptoServiceProvider();
+                var originalBytes = Encoding.Default.GetBytes(password + "webproject");
+                var encodedBytes = md5.ComputeHash(originalBytes);
 
-               return BitConverter.ToString(encodedBytes).Replace("-", "").ToLower();
-          }
-     }
+                return BitConverter.ToString(encodedBytes).Replace("-", "").ToLower();
+            }
+        }
 }
+

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace WebAplication.Domains.Entities.User
 {
-     public enum URole
-     {
-          None,
-          User,
-          Admin
-     }
+    public enum URole
+    {
+        None,
+        User,
+        Admin
+    }
 }
