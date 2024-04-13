@@ -1,5 +1,7 @@
 ﻿
+<!DOCTYPE html>
 <!-- Topbar Start -->
+
 <div class="navbar-custom">
      <div class="container-fluid">
           <ul class="list-unstyled topnav-menu float-right mb-0">
@@ -160,7 +162,8 @@
                     <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                          <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
                          <span class="pro-user-name ml-1">
-                              Nik Patel <i class="mdi mdi-chevron-down"></i>
+                              @((string)ViewBag.UserNam.Username)
+                              <i class="mdi mdi-chevron-down"></i>
                          </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
@@ -389,11 +392,11 @@
                               <i class="remixicon-dashboard-line"></i>Dashboards <div class="arrow-down"></div>
                          </a>
                          <ul class="submenu">
-                             <li>
-                                 @Html.ActionLink("Dashboard1", "Index", "Home")
-                             </li>
                               <li>
-                                  @Html.ActionLink("Dashboard2", "Dashboard2", "Home")
+                                   @Html.ActionLink("Dashboard1", "Index", "Home")
+                              </li>
+                              <li>
+                                   @Html.ActionLink("Dashboard2", "Dashboard2", "Home")
                               </li>
                          </ul>
                     </li>
@@ -407,19 +410,19 @@
                                    <a href="apps-kanbanboard.html">Kanban Board</a>
                               </li>
                               <li>
-                                  @Html.ActionLink("Companies", "Companies", "Home")
+                                   @Html.ActionLink("Companies", "Companies", "Home")
                               </li>
                               <li>
-                                  @Html.ActionLink("Calendar", "Calendar", "Home")
+                                   @Html.ActionLink("Calendar", "Calendar", "Home")
                               </li>
                               <li>
-                                  @Html.ActionLink("FileManager", "FileManager", "Home")
+                                   @Html.ActionLink("FileManager", "FileManager", "Home")
                               </li>
                               <li>
-                                  @Html.ActionLink("Tickets", "Tickets", "Home")
+                                   @Html.ActionLink("Tickets", "Tickets", "Home")
                               </li>
                               <li>
-                                  @Html.ActionLink("TeamMembers", "TeamMembers", "Home")
+                                   @Html.ActionLink("TeamMembers", "TeamMembers", "Home")
                               </li>
                               <li class="has-submenu">
                                    <a href="#">Email <div class="arrow-down"></div></a>
@@ -618,7 +621,7 @@
                                              <a href="charts-c3.html">C3 Charts</a>
                                         </li>
                                         <li>
-                                            @Html.ActionLink("Charts", "Charts", "Home")
+                                             @Html.ActionLink("Charts", "Charts", "Home")
                                         </li>
                                         <li>
                                              <a href="charts-chartist.html">Chartist Charts</a>
