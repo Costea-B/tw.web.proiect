@@ -11,5 +11,6 @@ namespace WebApplication1.Models.User
           public string Username { get; set; }
           public List<string> Products { get; set; }
           public string SingleProduct { get; set; }
+          public HttpPostedFileBase ImageFile { get; set; }
      }
 }

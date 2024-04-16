@@ -4,6 +4,11 @@
 }
 
 @model WebApplication1.Models.User.ProductData
+@using (Html.BeginForm("UploadImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+     <input type="file" name="ImageFile" />
+     <input type="submit" value="Upload" />
+}
 
 <div class="product_image_area">
      <div class="container">
@@ -12,7 +17,7 @@
                     <div class="s_Product_carousel">
                          <div class="single-prd-item">
                               <img class="img-fluid" src="~/Uploads/1/s-p1.jpg" alt="">
-                         </div>                        
+                         </div>
                     </div>
                </div>
                <div class="col-lg-5 offset-lg-1">

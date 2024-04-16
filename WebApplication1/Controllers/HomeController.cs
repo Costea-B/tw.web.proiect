@@ -81,6 +81,26 @@ namespace WebApplication1.Controllers
                return View();
           }
 
-        
+          [HttpPost]
+          public ActionResult UploadImage(ProductData model)
+          {
+               if (model.ImageFile != null && model.ImageFile.ContentLength > 0)
+               {
+                    // Creăm un nume unic pentru folderul nou
+                    string uploadFolderPath = Path.Combine(Server.MapPath("~/Uploads"), Guid.NewGuid().ToString());
+
+                    // Creăm folderul nou
+                    DirectoryInfo directoryInfo = Directory.CreateDirectory(uploadFolderPath);
+
+                    // Salvăm imaginea încărcată în folderul nou
+                    string imagePath = Path.Combine(uploadFolderPath, Path.GetFileName(model.ImageFile.FileName));
+                    model.ImageFile.SaveAs(imagePath);
+
+
+               }
+
+               return RedirectToAction("Index");
+          }
+
      }
 }
