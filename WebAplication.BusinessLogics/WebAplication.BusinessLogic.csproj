@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AppBL\SesionBL.cs" />
     <Compile Include="BussinesLogic.cs" />
+    <Compile Include="Core\AdminApi.cs" />
     <Compile Include="Core\UserApi.cs" />
     <Compile Include="DBModel\SessionContext.cs" />
     <Compile Include="DBModel\UserContext.cs" />

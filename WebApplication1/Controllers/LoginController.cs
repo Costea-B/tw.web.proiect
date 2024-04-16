@@ -28,17 +28,8 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public ActionResult Pages_Register()
-        {
-            return View();
-        }
-        //public ActionResult Pages_Lock_Screen()
-        //{
-        //     return View();
-        //}
-        [HttpPost]
-
-        public ActionResult Pages_Login(UserData obj_emp)
+        [HttpPost]          
+          public ActionResult Pages_Login(UserData obj_emp)
         {
             var UData = new ULoginData
             {
