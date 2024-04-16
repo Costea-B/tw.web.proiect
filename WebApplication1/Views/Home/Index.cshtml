@@ -1,11 +1,9 @@
-﻿
-@{
+﻿@{
      Layout = "~/Views/Shared/_Layout.cshtml";
      ViewBag.Title = "Home";
 }
 
 @using System.Web.Optimization
-@model WebApplication1.Models.User.ProductData
 
 <div class="row">
      <div class="col-md-12">
@@ -15,44 +13,31 @@
                     <thead>
                          <tr>
                               <th>PRODUCT</th>
+                              <th>Pret in ruble transnistriene</th>
                               <th>ACTION</th>
                          </tr>
                     </thead>
                     <tbody>
                          @using (Html.BeginForm("Product", "Home", FormMethod.Post, new { autocomplete = "off" }))
                          {
-                              foreach (var prod in Model.Products)
-                              {
-                                   <tr>
-                                        <td>@prod</td>
-                                        <td>
+                              var produse = ViewBag.Products as List<WebAplication.Domains.Entities.User.Product>; // Obține lista de produse din ViewBag
 
-                                             <button style="float: right" class="btn btn-primary btn-xs" name="btn"
-                                                     type="submit" value="@prod">
-                                                  View
-                                             </button>
-                                        </td>
-                                   </tr>
+                              if (produse != null)
+                              {
+                                   foreach (var prod in produse)
+                                   {
+                                        <tr>
+                                             <td>@prod.name</td> <!-- Afișează numele produsului -->
+                                             <td> @prod.price</td>
+                                             <td>
+                                                  <button style="float: right" class="btn btn-primary btn-xs" name="btn" type="submit" value="@prod.id">
+                                                       View
+                                                  </button>
+                                             </td>
+                                        </tr>
+                                   }
                               }
                          }
-
-
-                         @*@using (Ajax.BeginForm("Product", "Home", new AjaxOptions { HttpMethod = "POST",
-                                  OnSuccess = "success", OnFailure = "fail", UpdateTargetId = "resultTarget" }))
-                              {
-                                  foreach (var prod in Model.Products)
-                                  {
-                                      <tr>
-                                          <td>@prod</td>
-                                          <td>
-                                              @Html.Hidden("btn", prod)
-                                              <button style="float: right" class="btn btn-primary btn-xs"
-                                                      type="submit">View</button>
-                                          </td>
-                                      </tr>
-                                  }
-                              }*@
-
                     </tbody>
                </table>
           </div>
@@ -63,19 +48,16 @@
      @Scripts.Render("~/bundles/unobtrusive/js")
 
      <script type="text/javascript">
-        function success(data) {
-            if (data.RedirectUrl) {
-                window.location.href = data.RedirectUrl;
-            } else {
-                $("#resultTarget").text(data.msg);
-            }
-        }
+          function success(data) {
+               if (data.RedirectUrl) {
+                    window.location.href = data.RedirectUrl;
+               } else {
+                    $("#resultTarget").text(data.msg);
+               }
+          }
 
-        function fail(data) {
-            $("#resultTarget").text(data);
-        }
-
+          function fail(data) {
+               $("#resultTarget").text(data);
+          }
      </script>
 }
-
-

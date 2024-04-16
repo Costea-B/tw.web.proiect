@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,7 +57,6 @@ namespace WebAplication.BusinessLogics.Core
 
             return new ULoginResp { IsSuccess = false };
         }
-
 
         public HttpCookie Cookie(string loginCredential)
         {
@@ -134,5 +134,31 @@ namespace WebAplication.BusinessLogics.Core
 
         }
 
+        public List<Product> SearchProduct()
+          {
+               List<Product> products;
+
+               using (var db = new ProductContext())
+               {
+                    // Preia toate produsele din baza de date sub forma unui IQueryable<ProductDb>
+                    IQueryable<ProductDb> productDbQuery = db.Product;
+
+                    // Convertește fiecare ProductDb într-un Product și colectează rezultatele într-o listă de Product
+                    products = productDbQuery.Select(productDb => new Product
+                    {                        
+                         id = productDb.id,
+                         name = productDb.name,
+                         size = productDb.size,
+                         price = productDb.price,
+                         img = productDb.img,
+                         quantity = productDb.quantity
+
+                    }).ToList();
+               }
+
+
+
+               return products;
+          }
     }
 }

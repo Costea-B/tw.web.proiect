@@ -8,6 +8,7 @@ using WebAplication.BusinessLogics.Core;
 using WebAplication.BusinessLogics.Interface;
 using WebAplication.Domains.Entities.Response;
 using WebAplication.Domains.Entities.User;
+using System.IO;
 
 namespace WebAplication.BusinessLogics.AppBL
 {
@@ -31,5 +32,10 @@ namespace WebAplication.BusinessLogics.AppBL
            {
             return GetCookie(apiCookieValue);
            }
+
+          public List<Product> GetProduct()
+          {
+               return SearchProduct();
+          }
     }
 }

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using WebAplication.BusinessLogics.Interface;
+using WebAplication.BusinessLogics;
 using WebAplication.Domain.Entities.User;
 using WebAplication.Domains.Entities.User;
 using WebApplication1.Extension;
@@ -15,10 +17,16 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : BaseController
     {
-          ProductData u = new ProductData
+          private readonly ILogin _sesion;
+
+          public HomeController()
           {
-               Products = new List<string> { "Product #1", "Product #2", "Product #3", "Product #4" }
-          };
+               var bl = new BussinesLogic();
+               _sesion = bl.GetLoginBL();
+
+          }
+
+          
 
           // GET: Home
           public ActionResult Index()
@@ -31,12 +39,14 @@ namespace WebApplication1.Controllers
             var user = System.Web.HttpContext.Current.GetMySessionObject();
                ViewBag.UserNam = user;
 
-               ProductData u = new ProductData
-               {
-                    Products = new List<string> { "Product #1", "Product #2", "Product #3", "Product #4" }
-               };
-               return View(u);        
-               
+
+
+               var produs = _sesion.GetProduct();
+
+               ViewBag.Products = produs;
+
+                  return View();
+
           }
           public ActionResult Product()
           {
@@ -46,6 +56,7 @@ namespace WebApplication1.Controllers
                u.Username = "Customer";
                u.SingleProduct = product;               
                ViewBag.UserNam = user;
+              
 
                return View(u);
           }

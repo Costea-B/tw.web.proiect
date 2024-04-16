@@ -15,6 +15,7 @@ namespace WebAplication.BusinessLogics.Interface
         ULoginResp UserRegistAction(URegistdata data);
         HttpCookie GenCookie(string loginCredential);
         User GetUserByCookie(string apiCookieValue);
+        List<Product> GetProduct();
 
     }
 }
