@@ -35,7 +35,12 @@ namespace WebAplication.BusinessLogics.AppBL
 
           public List<Product> GetProduct()
           {
-               return SearchProduct();
+               return SelectAllProducts();
+          }
+
+          public Product SerchProductbyid(string id)
+          {
+               return SercheProduct(id);
           }
     }
 }

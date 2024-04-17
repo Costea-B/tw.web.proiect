@@ -36,27 +36,26 @@ namespace WebApplication1.Controllers
             {
                 return Redirect("/Login/Pages_Login");
             }
-            var user = System.Web.HttpContext.Current.GetMySessionObject();
+
+               var user = System.Web.HttpContext.Current.GetMySessionObject();
                ViewBag.UserNam = user;
-
-
-
                var produs = _sesion.GetProduct();
-
                ViewBag.Products = produs;
-
-                  return View();
+               return View();
 
           }
           public ActionResult Product()
           {
+               var adres = "~/Uploads/1/p2.jpg";
                var product = Request.QueryString["p"];
                var user = System.Web.HttpContext.Current.GetMySessionObject();
                ProductData u = new ProductData();
                u.Username = "Customer";
                u.SingleProduct = product;               
                ViewBag.UserNam = user;
-              
+               ViewBag.Adresimg = adres;
+               var products = _sesion.SerchProductbyid(product);
+               ViewBag.Products = products;
 
                return View(u);
           }
@@ -82,8 +81,9 @@ namespace WebApplication1.Controllers
           }
 
           [HttpPost]
-          public ActionResult UploadImage(ProductData model)
+          public ActionResult UploadDataProducts(ProductData model)
           {
+
                if (model.ImageFile != null && model.ImageFile.ContentLength > 0)
                {
                     // Creăm un nume unic pentru folderul nou
@@ -96,6 +96,7 @@ namespace WebApplication1.Controllers
                     string imagePath = Path.Combine(uploadFolderPath, Path.GetFileName(model.ImageFile.FileName));
                     model.ImageFile.SaveAs(imagePath);
 
+                   var userimg = imagePath;
 
                }
 

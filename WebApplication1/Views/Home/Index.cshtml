@@ -7,16 +7,10 @@
 
 <div class="row">
      <div class="col-md-12">
-          <div class="table-responsive">
+          <div class="table-responsive d-flex flex-wrap p-2 justify-content-center">
                <div id="resultTarget"></div>
                <table class="table table-bordered">
-                    <thead>
-                         <tr>
-                              <th>PRODUCT</th>
-                              <th>Pret in ruble transnistriene</th>
-                              <th>ACTION</th>
-                         </tr>
-                    </thead>
+                    
                     <tbody>
                          @using (Html.BeginForm("Product", "Home", FormMethod.Post, new { autocomplete = "off" }))
                          {
@@ -26,15 +20,42 @@
                               {
                                    foreach (var prod in produse)
                                    {
-                                        <tr>
-                                             <td>@prod.name</td> <!-- Afișează numele produsului -->
-                                             <td> @prod.price</td>
-                                             <td>
-                                                  <button style="float: right" class="btn btn-primary btn-xs" name="btn" type="submit" value="@prod.id">
-                                                       View
-                                                  </button>
-                                             </td>
-                                        </tr>
+                                        
+
+                                        <div class="single-product w-25 m-3">
+                                             <img class="img-fluid" src="@Url.Content(prod.img)" alt="">
+                                             <div class="product-details">
+                                                  <h6>
+                                                       @prod.name
+                                                  </h6>
+                                                  <div class="price">
+                                                       <h6>@prod.price</h6>
+                                                  </div>
+                                                  <div class="prd-bottom">
+
+                                                       <a href="" class="social-info">
+                                                            <span class="ti-bag"></span>
+                                                            <p class="hover-text">add to cart</p>
+                                                       </a>
+                                                       <a href="" class="social-info">
+                                                            <span class="lnr lnr-heart"></span>
+                                                            <p class="hover-text">Wishlist</p>
+                                                       </a>
+                                                       <a href="" class="social-info">
+                                                            <span class="lnr lnr-sync"></span>
+                                                            <p class="hover-text">compare</p>
+                                                       </a>
+                                                       
+                                                            <button style="float: right" class="btn btn-primary btn-xs" name="btn" type="submit" value="@prod.id">
+                                                                 View
+                                                            </button>
+                                                       
+                                                  </div>
+                                             </div>
+                                        </div>
+
+
+                                       
                                    }
                               }
                          }

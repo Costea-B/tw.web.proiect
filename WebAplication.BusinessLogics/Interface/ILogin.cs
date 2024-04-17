@@ -16,6 +16,7 @@ namespace WebAplication.BusinessLogics.Interface
         HttpCookie GenCookie(string loginCredential);
         User GetUserByCookie(string apiCookieValue);
         List<Product> GetProduct();
+          Product SerchProductbyid(string id);
 
     }
 }

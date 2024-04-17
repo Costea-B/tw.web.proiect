@@ -1,9 +1,11 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -134,7 +136,7 @@ namespace WebAplication.BusinessLogics.Core
 
         }
 
-        public List<Product> SearchProduct()
+        public List<Product> SelectAllProducts()
           {
                List<Product> products;
 
@@ -159,6 +161,21 @@ namespace WebAplication.BusinessLogics.Core
 
 
                return products;
+          }
+
+          public Product SercheProduct(string id)
+          {
+
+               ProductDb product;
+               using (var db = new ProductContext())
+               {
+                    product = db.Product.FirstOrDefault(u => u.id == id );
+               }
+
+               if (product == null) return null;              
+               var product1 = Mapper.Map<Product>(product);
+
+               return product1;
           }
     }
 }
