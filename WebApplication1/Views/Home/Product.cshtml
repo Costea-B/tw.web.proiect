@@ -4,11 +4,6 @@
 }
 
 @model WebApplication1.Models.User.ProductData
-@using (Html.BeginForm("UploadImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-     <input type="file" name="ImageFile" />
-     <input type="submit" value="Upload" />
-}
 
 @using (Html.BeginForm("Product", "Home", FormMethod.Post, new { autocomplete = "off" }))
 {

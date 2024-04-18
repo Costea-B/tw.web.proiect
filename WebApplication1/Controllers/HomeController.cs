@@ -15,8 +15,8 @@ using WebApplication1.Models.User;
 
 namespace WebApplication1.Controllers
 {
-    public class HomeController : BaseController
-    {
+     public class HomeController : BaseController
+     {
           private readonly ILogin _sesion;
 
           public HomeController()
@@ -26,16 +26,16 @@ namespace WebApplication1.Controllers
 
           }
 
-          
+
 
           // GET: Home
           public ActionResult Index()
-        {
-            SessionStatus();
-            if ((string)System.Web.HttpContext.Current.Session["LoginStatus"] != "login")
-            {
-                return Redirect("/Login/Pages_Login");
-            }
+          {
+               SessionStatus();
+               if ((string)System.Web.HttpContext.Current.Session["LoginStatus"] != "login")
+               {
+                    return Redirect("/Login/Pages_Login");
+               }
 
                var user = System.Web.HttpContext.Current.GetMySessionObject();
                ViewBag.UserNam = user;
@@ -51,7 +51,7 @@ namespace WebApplication1.Controllers
                var user = System.Web.HttpContext.Current.GetMySessionObject();
                ProductData u = new ProductData();
                u.Username = "Customer";
-               u.SingleProduct = product;               
+               u.SingleProduct = product;
                ViewBag.UserNam = user;
                ViewBag.Adresimg = adres;
                var products = _sesion.SerchProductbyid(product);
@@ -76,12 +76,12 @@ namespace WebApplication1.Controllers
                var user = System.Web.HttpContext.Current.GetMySessionObject();
                ViewBag.UserNam = user;
                if (user.Level != URole.Admin) return Redirect("/Login/Pages_Login");
-               
+
                return View();
           }
 
           [HttpPost]
-          public ActionResult UploadDataProducts(ProductData model)
+          public ActionResult UploadImage(RegistProduct model)
           {
 
                if (model.ImageFile != null && model.ImageFile.ContentLength > 0)
@@ -96,12 +96,26 @@ namespace WebApplication1.Controllers
                     string imagePath = Path.Combine(uploadFolderPath, Path.GetFileName(model.ImageFile.FileName));
                     model.ImageFile.SaveAs(imagePath);
 
-                   var userimg = imagePath;
+                    var userimg = imagePath;
+                    var UData = new Product
+                    {
+                         name = model.name,
+                         id = model.id,
+                         size = model.size,
+                         price = model.price,
+                         quantity = model.quantity,
 
+                    };
                }
 
                return RedirectToAction("Index");
           }
+          public ActionResult AddProduct()
+          {
 
+               return View();
+          }
+
+         
      }
 }

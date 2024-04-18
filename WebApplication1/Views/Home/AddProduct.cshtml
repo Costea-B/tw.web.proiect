@@ -1,0 +1,91 @@
+﻿
+@{
+     ViewBag.Title = "AddProduct";
+     Layout = "~/Views/Shared/_NotFooterHeader.cshtml";
+}
+@model WebApplication1.Models.User.ProductData
+@using (Html.BeginForm("UploadImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+     <div class="account-pages mt-5 mb-5">
+          <div class="container">
+               <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-6 col-xl-5">
+                         <div class="card">
+
+                              <div class="card-body p-4">
+
+                                   <div class="text-center w-75 m-auto">
+                                        <a href="index.html">
+                                             <span><img src="assets/images/logo-light.png" alt="" height="22"></span>
+                                        </a>
+                                        <p class="text-muted mb-4 mt-3">Introdu datele despre product.</p>
+                                   </div>
+
+                                   <form action="#">
+
+                                        <div class="form-group mb-3">
+                                             <label for="Name">Nume</label>
+                                             <input class="form-control" type="text" id="emailaddress" required="" placeholder="Introdu numele produsului " name="name">
+
+                                        </div>
+
+                                        <div class="form-group mb-3">
+
+                                             <label for="ID">ID</label>
+                                             <input class="form-control" type="text" required id="ID" placeholder="Introdu ID-ul" name="id">
+
+
+
+                                        </div>
+                                        <div class="form-group mb-3">
+
+                                             <label for="Size">Marimea</label>
+                                             <input class="form-control" type="text" required id="Size" placeholder="Introdu marimea" name="size">
+
+
+
+                                        </div>
+                                        <div class="form-group mb-3">
+
+                                             <label for="Price">Pretul</label>
+                                             <input class="form-control" type="text" required id="Price" placeholder="Introdu ID-ul" name="price">
+
+
+
+                                        </div>
+                                        <div class="form-group mb-3">
+
+                                             <label for="quantity">Cantitatea</label>
+                                             <input class="form-control" type="text" required id="quantity" placeholder="Introdu cantitatea" name="quantity">
+                                        </div>
+
+                                        <input type="file" name="ImageFile" />
+
+
+
+
+                                        <br><br>
+                                        <div class="form-group mb-0 text-center">
+                                             <button class="btn btn-primary btn-block" type="submit" valuae="Upload"> Salveaza </button>
+
+                                        </div>
+
+
+                                   </form>
+
+
+
+                              </div> <!-- end card-body -->
+                         </div>
+                         <!-- end card -->
+                         <!-- end row -->
+
+                    </div> <!-- end col -->
+               </div>
+               <!-- end row -->
+          </div>
+          <!-- end container -->
+     </div>
+
+
+}

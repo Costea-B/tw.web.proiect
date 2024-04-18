@@ -507,6 +507,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\User\ProductData.cs" />
+    <Compile Include="Models\User\RegistProduct.cs" />
     <Compile Include="Models\User\UserData.cs" />
     <Compile Include="Models\User\UserDataRegist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -572,6 +573,7 @@
     <Content Include="Views\Login\Pages_Lock_Screen.cshtml" />
     <Content Include="Views\Shared\_NotFooterHeader.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Home\AddProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
