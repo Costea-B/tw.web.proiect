@@ -17,6 +17,7 @@ namespace WebAplication.BusinessLogics.Interface
         User GetUserByCookie(string apiCookieValue);
         List<Product> GetProduct();
           Product SerchProductbyid(string id);
+          Respt RegistNewPRoduct(Product product);
 
     }
 }

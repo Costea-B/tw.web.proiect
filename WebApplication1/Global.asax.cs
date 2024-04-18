@@ -21,7 +21,11 @@ namespace WebApplication1
            AreaRegistration.RegisterAllAreas();
            RouteConfig.RegisterRoutes(RouteTable.Routes);
            BundelConfig.RegisterBundles(BundleTable.Bundles);
-           Mapper.Initialize(cfg => cfg.CreateMap<ProductDb, Product>());
+           Mapper.Initialize(cfg => {
+                cfg.CreateMap<ProductDb, Product>();
+                cfg.CreateMap<Product, ProductDb>();
+                
+           });
           }
     }
 }

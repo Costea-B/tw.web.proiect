@@ -177,5 +177,18 @@ namespace WebAplication.BusinessLogics.Core
 
                return product1;
           }
+
+          public Respt NewProduct(Product product)
+          {
+               var newproduct = Mapper.Map<ProductDb>(product);               
+
+               using (var db = new ProductContext())
+               {
+                    db.Product.Add(newproduct);
+                    db.SaveChanges();
+               }
+
+               return new Respt { Status = true };
+          }
     }
 }

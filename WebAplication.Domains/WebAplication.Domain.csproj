@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Response\Respt.cs" />
     <Compile Include="Entities\Response\ULoginResp.cs" />
     <Compile Include="Entities\User\Product.cs" />
     <Compile Include="Entities\User\ProductDb.cs" />

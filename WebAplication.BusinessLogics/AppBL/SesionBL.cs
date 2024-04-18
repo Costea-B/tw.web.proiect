@@ -12,26 +12,26 @@ using System.IO;
 
 namespace WebAplication.BusinessLogics.AppBL
 {
-     public class SesionBL : UserApi, ILogin 
+     public class SesionBL : UserApi, ILogin
      {
-         public ULoginResp UserLoginAction(ULoginData data)
+          public ULoginResp UserLoginAction(ULoginData data)
           {
                return RLoginUPService(data);
           }
 
-           public ULoginResp UserRegistAction(URegistdata data)
+          public ULoginResp UserRegistAction(URegistdata data)
           {
                return RRegistUPService(data);
           }
 
-            public HttpCookie GenCookie(string username)
+          public HttpCookie GenCookie(string username)
           {
-            return Cookie(username);
-           }
-            public User GetUserByCookie(string apiCookieValue)
-           {
-            return GetCookie(apiCookieValue);
-           }
+               return Cookie(username);
+          }
+          public User GetUserByCookie(string apiCookieValue)
+          {
+               return GetCookie(apiCookieValue);
+          }
 
           public List<Product> GetProduct()
           {
@@ -42,5 +42,10 @@ namespace WebAplication.BusinessLogics.AppBL
           {
                return SercheProduct(id);
           }
-    }
+
+          public Respt RegistNewPRoduct(Product product)
+          {
+               return NewProduct(product);
+          }
+     }
 }
