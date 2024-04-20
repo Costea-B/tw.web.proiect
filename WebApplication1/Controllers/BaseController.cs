@@ -51,5 +51,14 @@ namespace WebApplication1.Controllers
                }
 
           }
+          public void ExitSesion()
+          {
+               var apiCookie = Request.Cookies["X-KEY"];
+               if (apiCookie != null)
+               {
+                    apiCookie.Expires = DateTime.Now.AddDays(-1);
+                    ControllerContext.HttpContext.Response.Cookies.Add(apiCookie);
+               }
+          }
      }
 }

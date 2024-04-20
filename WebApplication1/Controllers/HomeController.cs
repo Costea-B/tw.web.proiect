@@ -77,6 +77,8 @@ namespace WebApplication1.Controllers
                }
                var user = System.Web.HttpContext.Current.GetMySessionObject();
                ViewBag.UserNam = user;
+               var produs = _sesion.GetProduct();
+               ViewBag.Products = produs;
                if (user.Level != URole.Admin) return Redirect("/Login/Pages_Login");
 
                return View();
@@ -122,7 +124,18 @@ namespace WebApplication1.Controllers
 
                return View();
           }
+          [HttpPost]
+          public ActionResult LogoutAction()
+          {
+               ExitSesion();
+               return RedirectToAction("Pages_Login", "Login");
+          }
 
-         
+          public ActionResult UserProfile()
+          {
+               var user = System.Web.HttpContext.Current.GetMySessionObject();
+               ViewBag.UserNam = user;
+               return View();
+          }
      }
 }

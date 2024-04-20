@@ -222,10 +222,16 @@
     <Content Include="Templaid\css\app-rtl.min.css" />
     <Content Include="Templaid\css\app.css" />
     <Content Include="Templaid\css\app.min.css" />
+    <Content Include="Templaid\css\baby-boy.png" />
     <Content Include="Templaid\css\bootstrap.css" />
     <Content Include="Templaid\css\bootstrap.min.css" />
+    <Content Include="Templaid\css\bussiness-man.png" />
     <Content Include="Templaid\css\icons.css" />
     <Content Include="Templaid\css\icons.min.css" />
+    <Content Include="Templaid\css\cos.png" />
+    <Content Include="Templaid\css\plus.png" />
+    <Content Include="Templaid\css\shopping-cart.png" />
+    <Content Include="Templaid\css\woman.png" />
     <Content Include="Templaid\fonts\dropify.svg" />
     <Content Include="Templaid\fonts\fa-brands-400.svg" />
     <Content Include="Templaid\fonts\fa-regular-400.svg" />
@@ -574,6 +580,7 @@
     <Content Include="Views\Shared\_NotFooterHeader.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\AddProduct.cshtml" />
+    <Content Include="Views\Home\UserProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
