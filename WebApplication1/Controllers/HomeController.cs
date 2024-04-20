@@ -137,5 +137,11 @@ namespace WebApplication1.Controllers
                ViewBag.UserNam = user;
                return View();
           }
+          public ActionResult Shopping()
+          {
+               var user = System.Web.HttpContext.Current.GetMySessionObject();
+               ViewBag.UserNam = user;
+               return View();
+          }
      }
 }
