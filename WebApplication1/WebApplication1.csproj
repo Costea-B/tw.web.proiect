@@ -509,6 +509,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Extension\HttpContextExtensions.cs" />
+    <Compile Include="Filtres\AdminModeAtributte.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

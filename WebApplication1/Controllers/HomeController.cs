@@ -14,6 +14,8 @@ using WebApplication1.Extension;
 using WebApplication1.Models.User;
 using WebAplication.Domains.Entities.Response;
 using System.Web.Razor.Generator;
+using WebApplication1.Filtres;
+using System.Web.UI.WebControls;
 
 namespace WebApplication1.Controllers
 {
@@ -67,14 +69,10 @@ namespace WebApplication1.Controllers
           {
                return RedirectToAction("Product", "Home", new { @p = btn });
           }
-
+            [AdminModeAtributte]
           public ActionResult Dashboard2()
           {
-               SessionStatus();
-               if ((string)System.Web.HttpContext.Current.Session["LoginStatus"] != "login")
-               {
-                    return Redirect("/Login/Pages_Login");
-               }
+              
                var user = System.Web.HttpContext.Current.GetMySessionObject();
                ViewBag.UserNam = user;
                var produs = _sesion.GetProduct();
@@ -85,7 +83,8 @@ namespace WebApplication1.Controllers
           }
 
           [HttpPost]
-          public ActionResult UploadImage(RegistProduct model)
+          [AdminModeAtributte]
+        public ActionResult UploadImage(RegistProduct model)
           {
 
                if (model.ImageFile != null && model.ImageFile.ContentLength > 0)
@@ -119,6 +118,7 @@ namespace WebApplication1.Controllers
 
                return RedirectToAction("Index");
           }
+            [AdminModeAtributte]
           public ActionResult AddProduct()
           {
 

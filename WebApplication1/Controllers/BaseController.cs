@@ -51,6 +51,7 @@ namespace WebApplication1.Controllers
                }
 
           }
+
           public void ExitSesion()
           {
                var apiCookie = Request.Cookies["X-KEY"];
