@@ -25,41 +25,43 @@
                                    {
 
 
-                                        <div class="single-product w-25 m-3">
+                                       <div class="single-product w-25 m-3">
                                             <div class="img-container">
                                                  <img class="img-fluid img-thumbnail" src="@Url.Content(prod.img)" alt="Responsive image" style="width: 400px; height: 400px">
                                             </div>
-                                             <div class="product-details">
-                                                  <h6>
-                                                       @prod.name
-                                                  </h6>
-                                                  <div class="price">
-                                                       <h6>@prod.price</h6>
-                                                  </div>
-                                                  <div class="prd-bottom">
+                                            <div class="product-details">
+                                                 <h6>@prod.name</h6>
+                                                 <div class="price">
+                                                      <h6>@prod.price</h6>
+                                                 </div>
+                                                 <div class="prd-bottom">
+                                                      <a href="" class="social-info">
+                                                           <span class="ti-bag"></span>
+                                                           <p class="hover-text">add to cart</p>
+                                                      </a>
+                                                      <a href="" class="social-info">
+                                                           <span class="lnr lnr-heart"></span>
+                                                           <p class="hover-text">Wishlist</p>
+                                                      </a>
+                                                      <a href="" class="social-info">
+                                                           <span class="lnr lnr-sync"></span>
+                                                           <p class="hover-text">compare</p>
+                                                      </a>
 
-                                                       <a href="" class="social-info">
-                                                            <span class="ti-bag"></span>
-                                                            <p class="hover-text">add to cart</p>
-                                                       </a>
-                                                       <a href="" class="social-info">
-                                                            <span class="lnr lnr-heart"></span>
-                                                            <p class="hover-text">Wishlist</p>
-                                                       </a>
-                                                       <a href="" class="social-info">
-                                                            <span class="lnr lnr-sync"></span>
-                                                            <p class="hover-text">compare</p>
-                                                       </a>
-                                                       <button style="float: right" class="btn btn-primary btn-xs" name="btn" type="submit" value="">
-                                                            <img src="~/Templaid/css/recycle-bin (1).png" alt="Descrierea imaginii" style="width: 20px; height: 20px;">
-                                                       </button>
-                                                            <button style="float: right; margin-right: 20px;" class="btn btn-primary btn-xs" name="btn" type="submit" value="@prod.id">
-                                                                 View
-                                                            </button>
+                                                      <button style="float: right; margin-right: 20px;" class="btn btn-primary btn-xs" name="btn" type="submit" value="@prod.id">
+                                                           View
+                                                      </button>
 
-                                                  </div>
-                                             </div>
-                                        </div>
+                                                     
+
+                                                      <a href="@Url.Action("DeletProduct", "Home", new { productId = prod.id })" class="social-info" onclick="document.getElementById('Deletproduct_@prod.id').submit();">
+                                                           <span class="lnr lnr-trash"></span>
+                                                           <img src="~/Templaid/css/recycle-bin (1).png" alt="Stergerea produsului" style="width: 20px; height: 20px;">
+                                                      </a>
+
+                                                 </div>
+                                            </div>
+                                       </div>
 
 
 

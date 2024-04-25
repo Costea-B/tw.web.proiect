@@ -137,6 +137,22 @@ namespace WebApplication1.Controllers
                ViewBag.UserNam = user;
                return View();
           }
-          
+
+          [AdminModeAtributte]
+          public ActionResult DeletProduct(string productId)
+          {
+               _sesion.DeletProductById(productId);
+
+               return RedirectToAction("Index", "Home");
+          }
+
+          public ActionResult ListClient()
+          {
+               var user = System.Web.HttpContext.Current.GetMySessionObject();
+               ViewBag.UserNam = user;
+               return View();
+          }
+
+
      }
 }

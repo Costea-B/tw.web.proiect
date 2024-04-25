@@ -47,5 +47,10 @@ namespace WebAplication.BusinessLogics.AppBL
           {
                return NewProduct(product);
           }
+
+          public void DeletProductById(string productId)
+          {
+               DeleteProduct(productId);
+          }
      }
 }

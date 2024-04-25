@@ -229,6 +229,7 @@
     <Content Include="Templaid\css\icons.css" />
     <Content Include="Templaid\css\icons.min.css" />
     <Content Include="Templaid\css\cos.png" />
+    <Content Include="Templaid\css\list-16.png" />
     <Content Include="Templaid\css\plus.png" />
     <Content Include="Templaid\css\recycle-bin %281%29.png" />
     <Content Include="Templaid\css\recycle-bin.png" />
@@ -586,6 +587,7 @@
     <Content Include="Views\Home\AddProduct.cshtml" />
     <Content Include="Views\Home\UserProfile.cshtml" />
     <Content Include="Views\Cart\Shopping.cshtml" />
+    <Content Include="Views\Home\ListCLient.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

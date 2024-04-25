@@ -190,5 +190,20 @@ namespace WebAplication.BusinessLogics.Core
 
                return new Respt { Status = true };
           }
+
+          public void DeleteProduct(string productId)
+          {
+               ProductDb product;
+               using (var db = new ProductContext())
+               {
+                    product = db.Product.FirstOrDefault(u => u.id == productId);
+                    if( product != null)
+                    {
+                         db.Product.Remove(product);
+                         db.SaveChanges();
+                    }
+               }               
+
+          }
     }
 }
