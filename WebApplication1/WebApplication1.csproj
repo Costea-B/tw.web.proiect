@@ -259,6 +259,7 @@
     <Content Include="Templaid\images\companies\cisco.png" />
     <Content Include="Templaid\images\companies\facebook.png" />
     <Content Include="Templaid\images\companies\google.png" />
+    <Content Include="Templaid\images\delivery-box_5585908.png" />
     <Content Include="Templaid\images\email\1.png" />
     <Content Include="Templaid\images\email\2.png" />
     <Content Include="Templaid\images\email\3.png" />
@@ -319,6 +320,8 @@
     <Content Include="Templaid\images\plugins\jstree.png" />
     <Content Include="Templaid\images\plugins\loading.gif" />
     <Content Include="Templaid\images\plugins\multiple-arrow.png" />
+    <Content Include="Templaid\images\running-shoe %281%29.png" />
+    <Content Include="Templaid\images\running-shoe.png" />
     <Content Include="Templaid\images\small\img-1.jpg" />
     <Content Include="Templaid\images\small\img-2.jpg" />
     <Content Include="Templaid\images\small\img-3.jpg" />
