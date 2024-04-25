@@ -13,7 +13,7 @@ namespace WebAplication.BusinessLogics.DBModel.Seed
       public class UserContext : DbContext
     {
         public UserContext() :
-            base("name = WebAplication")
+            base("name = WebApplication")
         {
         }        
 

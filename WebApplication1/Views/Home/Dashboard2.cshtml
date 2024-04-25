@@ -26,7 +26,9 @@
 
 
                                         <div class="single-product w-25 m-3">
-                                             <img class="img-fluid" src="@Url.Content(prod.img)" alt="">
+                                            <div class="img-container">
+                                                 <img class="img-fluid img-thumbnail" src="@Url.Content(prod.img)" alt="Responsive image" style="width: 400px; height: 400px">
+                                            </div>
                                              <div class="product-details">
                                                   <h6>
                                                        @prod.name
@@ -48,10 +50,12 @@
                                                             <span class="lnr lnr-sync"></span>
                                                             <p class="hover-text">compare</p>
                                                        </a>
-
-                                                       <button style="float: right" class="btn btn-primary btn-xs" name="btn" type="submit" value="@prod.id">
-                                                            View
+                                                       <button style="float: right" class="btn btn-primary btn-xs" name="btn" type="submit" value="">
+                                                            <img src="~/Templaid/css/recycle-bin (1).png" alt="Descrierea imaginii" style="width: 20px; height: 20px;">
                                                        </button>
+                                                            <button style="float: right; margin-right: 20px;" class="btn btn-primary btn-xs" name="btn" type="submit" value="@prod.id">
+                                                                 View
+                                                            </button>
 
                                                   </div>
                                              </div>

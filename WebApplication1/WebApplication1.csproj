@@ -230,6 +230,8 @@
     <Content Include="Templaid\css\icons.min.css" />
     <Content Include="Templaid\css\cos.png" />
     <Content Include="Templaid\css\plus.png" />
+    <Content Include="Templaid\css\recycle-bin %281%29.png" />
+    <Content Include="Templaid\css\recycle-bin.png" />
     <Content Include="Templaid\css\shopping-cart.png" />
     <Content Include="Templaid\css\woman.png" />
     <Content Include="Templaid\fonts\dropify.svg" />
