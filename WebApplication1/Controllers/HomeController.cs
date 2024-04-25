@@ -44,6 +44,7 @@ namespace WebApplication1.Controllers
                var user = System.Web.HttpContext.Current.GetMySessionObject();
                ViewBag.UserNam = user;
                
+               
                var produs = _sesion.GetProduct();
                ViewBag.Products = produs;
                return View();
@@ -76,8 +77,7 @@ namespace WebApplication1.Controllers
                var user = System.Web.HttpContext.Current.GetMySessionObject();
                ViewBag.UserNam = user;
                var produs = _sesion.GetProduct();
-               ViewBag.Products = produs;
-               if (user.Level != URole.Admin) return Redirect("/Login/Pages_Login");
+               ViewBag.Products = produs;               
 
                return View();
           }
@@ -137,11 +137,6 @@ namespace WebApplication1.Controllers
                ViewBag.UserNam = user;
                return View();
           }
-          public ActionResult Shopping()
-          {
-               var user = System.Web.HttpContext.Current.GetMySessionObject();
-               ViewBag.UserNam = user;
-               return View();
-          }
+          
      }
 }
