@@ -14,11 +14,10 @@
                     <tbody>
                          @using (Html.BeginForm("Product", "Home", FormMethod.Post, new { autocomplete = "off" }))
                          {
-                              var produse = ViewBag.Products as List<WebAplication.Domains.Entities.User.Product>; 
+                              
 
-                              if (produse != null)
-                              {
-                                   foreach (var prod in produse)
+                              
+                                   foreach (var prod in Model.Products)
                                    {
                                         
 
@@ -59,7 +58,7 @@
 
                                        
                                    }
-                              }
+                              
                          }
                     </tbody>
                </table>

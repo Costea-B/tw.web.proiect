@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <!-- Topbar Start -->
 
+@{
+     var user = Model;
+}
 <div class="navbar-custom">
      <div class="container-fluid">
           <ul class="list-unstyled topnav-menu float-right mb-0">
@@ -42,7 +45,7 @@
                     <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="" role="button" aria-haspopup="false" aria-expanded="false">
 
                          <span class="pro-user-name ml-1">
-                              @((string)ViewBag.UserNam.Username)
+                              @(user.Username)
                               <i class="mdi mdi-chevron-down"></i>
                          </span>
                     </a>
@@ -58,20 +61,22 @@
                               <span>My Account</span>
                          </a>
                          <!-- item-->
-                         <a href="/Home/ListClient" class="dropdown-item notify-item">
-                              <img src="~/Templaid/css/list-16.png" style="width: 15px; height: 15px; margin-right: 5px;">
-                              <span>List Client</span>
-                         </a>
-
-                         <!-- item-->
-                         <form id="logoutForm" action="@Url.Action("LogoutAction", "Home")" method="post">
-                              <a href="javascript:void(0);" class="dropdown-item notify-item" onclick="document.getElementById('logoutForm').submit();">
-                                   <i class="remixicon-logout-box-line"></i>
-                                   <span>Logout</span>
+                         @if (user.Level == WebAplication.Domains.Entities.User.URole.Admin)
+                         {
+                              <a href="/Home/ListClient" class="dropdown-item notify-item">
+                                   <img src="~/Templaid/css/list-16.png" style="width: 15px; height: 15px; margin-right: 5px;">
+                                   <span>List Client</span>
                               </a>
-                         </form>
+                         }
+                              <!-- item-->
+                              <form id="logoutForm" action="@Url.Action("LogoutAction", "Home")" method="post">
+                                   <a href="javascript:void(0);" class="dropdown-item notify-item" onclick="document.getElementById('logoutForm').submit();">
+                                        <i class="remixicon-logout-box-line"></i>
+                                        <span>Logout</span>
+                                   </a>
+                              </form>
 
-                    </div>
+                         </div>
                </li>
 
 
@@ -97,9 +102,7 @@
 
           <ul class="navigation-menu in">
 
-               @{
-                    var user = ViewBag.UserNam;
-               }
+
                @if (user.Level == WebAplication.Domains.Entities.User.URole.Admin)
                {
                     <li class="has-submenu active">
@@ -265,7 +268,7 @@
                          <li>
                               <a href="layouts-normal-header.html">Flip flops</a>
                          </li>
-                       
+
                          <li>
                               <a href="layouts-boxed.html">Cycling shoes</a>
                          </li>
@@ -337,7 +340,7 @@
                          <li>
                               <a href="layouts-center-menu.html">Hiking shoes</a>
                          </li>
-                        
+
                          <li>
                               <a href="layouts-normal-header.html">Flip flops</a>
                          </li>
@@ -351,7 +354,7 @@
 
 
 
-          <div class="clearfix"></div>
+               <div class="clearfix"></div>
      </div>
 </div>
 <!-- end Topbar -->

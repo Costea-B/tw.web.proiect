@@ -28,7 +28,7 @@ namespace WebAplication.BusinessLogics.AppBL
           {
                return Cookie(username);
           }
-          public User GetUserByCookie(string apiCookieValue)
+          public Users GetUserByCookie(string apiCookieValue)
           {
                return GetCookie(apiCookieValue);
           }
@@ -51,6 +51,11 @@ namespace WebAplication.BusinessLogics.AppBL
           public void DeletProductById(string productId)
           {
                DeleteProduct(productId);
+          }
+
+          public List<Users> GetUser()
+          {
+               return SelectAllUser();
           }
      }
 }

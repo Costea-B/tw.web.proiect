@@ -520,6 +520,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\User\GlobalModel.cs" />
     <Compile Include="Models\User\ProductData.cs" />
     <Compile Include="Models\User\RegistProduct.cs" />
     <Compile Include="Models\User\UserData.cs" />

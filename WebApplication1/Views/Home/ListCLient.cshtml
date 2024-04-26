@@ -1,7 +1,30 @@
 ﻿
 @{
-    ViewBag.Title = "ListCLient";
+     ViewBag.Title = "ListCLient";
 }
 
-<h2>ListCLient</h2>
 
+
+@using (Html.BeginForm("Product", "Home", FormMethod.Post, new { autocomplete = "off" }))
+{
+
+
+
+     foreach (var prod in Model.Users)
+     {
+
+
+          <div class="single-product w-25 m-3">               
+               <div class="product-details">
+                    <h6>
+                         @prod.Username
+                    </h6>
+                   
+               </div>
+          </div>
+
+
+
+     }
+
+}

@@ -14,11 +14,12 @@ namespace WebAplication.BusinessLogics.Interface
         ULoginResp UserLoginAction(ULoginData data);
         ULoginResp UserRegistAction(URegistdata data);
         HttpCookie GenCookie(string loginCredential);
-        User GetUserByCookie(string apiCookieValue);
+        Users GetUserByCookie(string apiCookieValue);
         List<Product> GetProduct();
         Product SerchProductbyid(string id);
         Respt RegistNewPRoduct(Product product);
           void DeletProductById(string productId);
+          List<Users> GetUser();
 
     }
 }

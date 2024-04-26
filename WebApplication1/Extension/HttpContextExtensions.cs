@@ -8,12 +8,12 @@ namespace WebApplication1.Extension
 {
      public static class HttpContextExtensions
      {
-          public static User GetMySessionObject(this HttpContext current)
+          public static Users GetMySessionObject(this HttpContext current)
           {
-               return (User)current?.Session["__SessionObject"];
+               return (Users)current?.Session["__SessionObject"];
           }
 
-          public static void SetMySessionObject(this HttpContext current, User profile)
+          public static void SetMySessionObject(this HttpContext current, Users profile)
           {
                current.Session.Add("__SessionObject", profile);
           }

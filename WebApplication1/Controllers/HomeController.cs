@@ -16,6 +16,7 @@ using WebAplication.Domains.Entities.Response;
 using System.Web.Razor.Generator;
 using WebApplication1.Filtres;
 using System.Web.UI.WebControls;
+using AutoMapper;
 
 namespace WebApplication1.Controllers
 {
@@ -42,27 +43,28 @@ namespace WebApplication1.Controllers
                }
 
                var user = System.Web.HttpContext.Current.GetMySessionObject();
-               ViewBag.UserNam = user;
-               
-               
                var produs = _sesion.GetProduct();
-               ViewBag.Products = produs;
-               return View();
+               GlobalModel data = new GlobalModel
+               {
+                    Username = user.Username,
+                    Level = user.Level,
+                    Products = produs,               
+                  
+               };
+
+               return View(data);       
 
           }
           public ActionResult Product()
           {
                
                var product = Request.QueryString["p"];
-               var user = System.Web.HttpContext.Current.GetMySessionObject();
-               ProductData u = new ProductData();
-               u.Username = "Customer";
-               u.SingleProduct = product;
+               var user = System.Web.HttpContext.Current.GetMySessionObject();                
                ViewBag.UserNam = user;
                var products = _sesion.SerchProductbyid(product);
                ViewBag.Products = products;
 
-               return View(u);
+               return View();
           }
 
           [HttpPost]
@@ -146,11 +148,19 @@ namespace WebApplication1.Controllers
                return RedirectToAction("Index", "Home");
           }
 
+          [AdminModeAtributte]
           public ActionResult ListClient()
           {
-               var user = System.Web.HttpContext.Current.GetMySessionObject();
-               ViewBag.UserNam = user;
-               return View();
+              var user = System.Web.HttpContext.Current.GetMySessionObject();
+               var anyuser = _sesion.GetUser();
+               GlobalModel data = new GlobalModel
+               {
+                    Username = user.Username,
+                    Level = user.Level,
+                    Users = anyuser,
+
+               };
+               return View(data);
           }
 
 

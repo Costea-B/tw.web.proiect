@@ -10,6 +10,7 @@ using System.Web.Security;
 using System.Web.SessionState;
 using WebAplication.Domains.Entities.User;
 using WebApplication1.App_Start;
+using WebApplication1.Models.User;
 
 namespace WebApplication1
 {
@@ -24,7 +25,7 @@ namespace WebApplication1
            Mapper.Initialize(cfg => {
                 cfg.CreateMap<ProductDb, Product>();
                 cfg.CreateMap<Product, ProductDb>();
-                
+
            });
           }
     }

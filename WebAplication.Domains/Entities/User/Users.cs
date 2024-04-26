@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebAplication.Domains.Entities.User
 {
-     public class User
+     public class Users
      {
         public int Id { get; set; }
         public string Username { get; set; }

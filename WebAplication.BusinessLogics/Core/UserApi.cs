@@ -105,7 +105,7 @@ namespace WebAplication.BusinessLogics.Core
             return apiCookie;
         }
 
-        public User GetCookie(string cookie)
+        public Users GetCookie(string cookie)
         {
             Session session;
             UDbTable curentUser;
@@ -123,7 +123,7 @@ namespace WebAplication.BusinessLogics.Core
             if (curentUser == null) return null;
 
 
-            var user = new User
+            var user = new Users
             {
                 Username = curentUser.UserName,
                 Email = curentUser.Email,
@@ -205,5 +205,27 @@ namespace WebAplication.BusinessLogics.Core
                }               
 
           }
-    }
+
+          public List<Users> SelectAllUser()
+          {
+               List<Users> users;
+
+               using (var db = new UserContext())
+               {
+                    // Preia toate produsele din baza de date sub forma unui IQueryable<ProductDb>
+                    IQueryable<UDbTable> userDbQuery = db.Users;
+
+                    // Convertește fiecare ProductDb într-un Product și colectează rezultatele într-o listă de Product
+                    users = userDbQuery.Select(userDb => new Users
+                    {                        
+                        Id = userDb.Id,
+                        Username = userDb.UserName,
+                        Email = userDb.Email,
+                        Level= userDb.Level,
+
+                    }).ToList();
+               }
+               return users;
+          }
+     }
 }
