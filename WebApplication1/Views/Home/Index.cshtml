@@ -14,58 +14,37 @@
                     <tbody>
                          @using (Html.BeginForm("Product", "Home", FormMethod.Post, new { autocomplete = "off" }))
                          {
-                              
+                              foreach (var prod in Model.Products)
+                              {
 
-                              
-                                   foreach (var prod in Model.Products)
-                                   {
-                                        
 
-                                        <div class="single-product w-25 m-3">
-                                             <div class="img-container">
-                                                  <img class="img-fluid img-thumbnail" src="@Url.Content(prod.img)" alt="Responsive image" style="width: 400px; height: 400px">
+                                   <div class="single-product w-25 m-3">
+                                        <div class="img-container">
+                                             <img class="img-fluid img-thumbnail" src="@Url.Content(prod.img)" alt="Responsive image" style="width: 400px; height: 400px">
+                                        </div>
+                                        <div class="product-details">
+                                             <h6>@prod.name</h6>
+                                             <div class="price">
+                                                  <h6>@prod.price</h6>
                                              </div>
-                                             <div class="product-details">
-                                                  <h6>
-                                                       @prod.name
-                                                  </h6>
-                                                  <div class="price">
-                                                       <h6>@prod.price</h6>
-                                                  </div>
-                                                  <div class="prd-bottom">
-
-                                                       <a href="" class="social-info">
-                                                            <span class="ti-bag"></span>
-                                                            <p class="hover-text">add to cart</p>
-                                                       </a>
-                                                       <a href="" class="social-info">
-                                                            <span class="lnr lnr-heart"></span>
-                                                            <p class="hover-text">Wishlist</p>
-                                                       </a>
-                                                       <a href="" class="social-info">
-                                                            <span class="lnr lnr-sync"></span>
-                                                            <p class="hover-text">compare</p>
-                                                       </a>
-                                                       
-                                                            <button style="float: right" class="btn btn-primary btn-xs" name="btn" type="submit" value="@prod.id">
-                                                                 View
-                                                            </button>
-                                                       
-                                                  </div>
+                                             <div class="prd-bottom">
+                                                  <button style="float: right; margin-right: 20px; margin-left: 175px; margin-top: 20px;" class="btn btn-primary btn-xs" name="btn" type="submit" value="@prod.id">
+                                                       View
+                                                  </button>                                              
+                                                  <a class="nav-link dropdown-toggle waves-effect waves-light" href="#" style="float: right; margin-right: 20px;">
+                                                       <img src="~/Templaid/css/shopping-cart.png" alt="Imagine" class="noti-icon-img" style="display: block; margin-left: 20px;">
+                                                       <span style="display: block;">Add to Cart</span>
+                                                  </a>
                                              </div>
                                         </div>
-
-
-                                       
-                                   }
-                              
+                                   </div>
+                              }
                          }
                     </tbody>
                </table>
           </div>
      </div>
 </div>
-
 @section Scripts {
      @Scripts.Render("~/bundles/unobtrusive/js")
 

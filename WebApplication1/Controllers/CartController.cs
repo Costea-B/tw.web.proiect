@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using WebAplication.BusinessLogics.Interface;
 using WebAplication.BusinessLogics;
 using WebApplication1.Extension;
+using WebAplication.Domains.Entities.User;
+using WebApplication1.Models.User;
 
 namespace WebApplication1.Controllers
 {
@@ -22,8 +24,13 @@ namespace WebApplication1.Controllers
           public ActionResult Shopping()
           {
                var user = System.Web.HttpContext.Current.GetMySessionObject();
-               ViewBag.UserNam = user;
-               return View();
+               GlobalModel data = new GlobalModel
+               {
+                    Username = user.Username,
+                    Level = user.Level,                   
+               };
+
+               return View(data);
           }
      }
 }

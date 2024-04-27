@@ -5,26 +5,41 @@
 
 
 
-@using (Html.BeginForm("Product", "Home", FormMethod.Post, new { autocomplete = "off" }))
-{
 
-
-
-     foreach (var prod in Model.Users)
-     {
-
-
-          <div class="single-product w-25 m-3">               
-               <div class="product-details">
-                    <h6>
-                         @prod.Username
-                    </h6>
-                   
-               </div>
-          </div>
-
-
-
-     }
-
-}
+<div class="row justify-content-center">
+    
+     <div class="col-lg-6 mx-auto">
+       
+          <div class="card-box">
+               <center>  <h4 class="header-title">Lista Utilizatorilor</h4></center>
+               <div class="table-responsive">
+                    <table class="table table-bordered mb-0">
+                         <thead>
+                              <tr>
+                                   <th>Username</th>
+                                   <th>Email</th>
+                                   <th>Level</th>
+                                   <th>Action</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              @foreach (var prod in Model.Users)
+                              {
+                                   <tr>
+                                        <th scope="row">@prod.Username</th>
+                                        <td>@prod.Email</td>
+                                        <td>@prod.Level</td>
+                                        <td>
+                                             <a href="@Url.Action("DeletUser", "Home", new { UserId = prod.Id })" class="social-info" onclick="document.getElementById('DeletUser_@prod.Id').submit();">
+                                                  <span class="lnr lnr-trash"></span>
+                                                  <img src="~/Templaid/css/recycle-bin (1).png" alt="Stergerea produsului" style="width: 20px; height: 20px;">
+                                             </a>
+                                        </td>
+                                   </tr>
+                              }
+                         </tbody>
+                    </table>
+               </div> <!-- end .table-responsive-->
+          </div> <!-- end card-box -->
+     </div>
+</div> <!--<!-- end row -->

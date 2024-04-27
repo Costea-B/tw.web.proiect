@@ -19,6 +19,7 @@ namespace WebAplication.BusinessLogics.Interface
         Product SerchProductbyid(string id);
         Respt RegistNewPRoduct(Product product);
           void DeletProductById(string productId);
+          void DeletUserById(int UserId);
           List<Users> GetUser();
 
     }

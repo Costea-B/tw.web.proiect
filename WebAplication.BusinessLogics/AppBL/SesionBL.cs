@@ -52,6 +52,10 @@ namespace WebAplication.BusinessLogics.AppBL
           {
                DeleteProduct(productId);
           }
+          public void DeletUserById(int UserId)
+          {
+               DeleteUser(UserId);
+          }
 
           public List<Users> GetUser()
           {

@@ -205,6 +205,20 @@ namespace WebAplication.BusinessLogics.Core
                }               
 
           }
+          public void DeleteUser(int UserId)
+          {
+               UDbTable User;
+               using (var db = new UserContext())
+               {
+                    User = db.Users.FirstOrDefault(u => u.Id == UserId);
+                    if (User != null)
+                    {
+                         db.Users.Remove(User);
+                         db.SaveChanges();
+                    }
+               }
+               
+          }
 
           public List<Users> SelectAllUser()
           {

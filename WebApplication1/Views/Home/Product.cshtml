@@ -2,12 +2,14 @@
      Layout = "~/Views/Shared/_Layout.cshtml";
      ViewBag.Title = "Product View";
 }
+@{
+     var produse = Model.Product;
+}
 
-@model WebApplication1.Models.User.ProductData
 
 @using (Html.BeginForm("Product", "Home", FormMethod.Post, new { autocomplete = "off" }))
 {
-     var produse = ViewBag.Products as WebAplication.Domains.Entities.User.Product; 
+     
      <div class="product_image_area">
           <div class="container">
                <div class="row s_product_inner">

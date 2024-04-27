@@ -12,7 +12,7 @@ namespace WebAplication.BusinessLogics.DBModel
         public class SessionContext : DbContext
         {
         public SessionContext() :
-            base("name = WebAplication")
+            base("name = WebApplication")
         {
         }
         public virtual DbSet<Session> Sessions { get; set; }

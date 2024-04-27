@@ -59,12 +59,16 @@ namespace WebApplication1.Controllers
           {
                
                var product = Request.QueryString["p"];
-               var user = System.Web.HttpContext.Current.GetMySessionObject();                
-               ViewBag.UserNam = user;
+               var user = System.Web.HttpContext.Current.GetMySessionObject();
                var products = _sesion.SerchProductbyid(product);
-               ViewBag.Products = products;
+               GlobalModel data = new GlobalModel
+               {
+                    Username = user.Username,
+                    Level = user.Level,
+                    Product = products,
 
-               return View();
+               };                          
+               return View(data);
           }
 
           [HttpPost]
@@ -77,11 +81,15 @@ namespace WebApplication1.Controllers
           {
               
                var user = System.Web.HttpContext.Current.GetMySessionObject();
-               ViewBag.UserNam = user;
                var produs = _sesion.GetProduct();
-               ViewBag.Products = produs;               
+               GlobalModel data = new GlobalModel
+               {
+                    Username = user.Username,
+                    Level = user.Level,
+                    Products = produs,
 
-               return View();
+               };                                      
+               return View(data);
           }
 
           [HttpPost]
@@ -135,9 +143,17 @@ namespace WebApplication1.Controllers
 
           public ActionResult UserProfile()
           {
+
                var user = System.Web.HttpContext.Current.GetMySessionObject();
-               ViewBag.UserNam = user;
-               return View();
+               GlobalModel data = new GlobalModel
+               {
+                    Username = user.Username,
+                    Level = user.Level,
+                    Email = user.Email,
+
+               };
+
+               return View(data);
           }
 
           [AdminModeAtributte]
@@ -146,6 +162,12 @@ namespace WebApplication1.Controllers
                _sesion.DeletProductById(productId);
 
                return RedirectToAction("Index", "Home");
+          }
+          public ActionResult DeletUser(int UserId)
+          {
+               _sesion.DeletUserById(UserId);
+
+               return RedirectToAction("ListClient", "Home");
           }
 
           [AdminModeAtributte]

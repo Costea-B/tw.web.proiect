@@ -2,12 +2,7 @@
 @{
      ViewBag.Title = "About";
 }
-@using System.Web.Optimization
-
- 
-
-          
-
+@using System.Web.Optimization         
 <div class="row">
      <div class="col-md-12">
           <div class="table-responsive d-flex flex-wrap p-2 justify-content-center">
@@ -17,68 +12,53 @@
                     <tbody>
                          @using (Html.BeginForm("Product", "Home", FormMethod.Post, new { autocomplete = "off" }))
                          {
-                              var produse = ViewBag.Products as List<WebAplication.Domains.Entities.User.Product>; // Obține lista de produse din ViewBag
+                              var produse = Model.Products as List<WebAplication.Domains.Entities.User.Product>;
 
                               if (produse != null)
                               {
-                                   foreach (var prod in produse)
+                                   foreach (var prod in Model.Products)
                                    {
 
-
-                                       <div class="single-product w-25 m-3">
-                                            <div class="img-container">
-                                                 <img class="img-fluid img-thumbnail" src="@Url.Content(prod.img)" alt="Responsive image" style="width: 400px; height: 400px">
-                                            </div>
-                                            <div class="product-details">
-                                                 <h6>@prod.name</h6>
-                                                 <div class="price">
-                                                      <h6>@prod.price</h6>
-                                                 </div>
-                                                 <div class="prd-bottom">
-                                                      <a href="" class="social-info">
-                                                           <span class="ti-bag"></span>
-                                                           <p class="hover-text">add to cart</p>
-                                                      </a>
-                                                      <a href="" class="social-info">
-                                                           <span class="lnr lnr-heart"></span>
-                                                           <p class="hover-text">Wishlist</p>
-                                                      </a>
-                                                      <a href="" class="social-info">
-                                                           <span class="lnr lnr-sync"></span>
-                                                           <p class="hover-text">compare</p>
-                                                      </a>
-
-                                                      <button style="float: right; margin-right: 20px;" class="btn btn-primary btn-xs" name="btn" type="submit" value="@prod.id">
-                                                           View
-                                                      </button>
-
+                                        <div class="single-product w-25 m-3">
+                                             <div class="img-container">
+                                                  <img class="img-fluid img-thumbnail" src="@Url.Content(prod.img)" alt="Responsive image" style="width: 400px; height: 400px">
+                                             </div>
+                                             <div class="product-details">
+                                                  <h6>@prod.name</h6>
+                                                  <div class="price">
+                                                       <h6>@prod.price</h6>
+                                                  </div>
+                                                  <div class="prd-bottom">
+                                                       <button style="float: right; margin-right: 20px; margin-left: 100px; margin-top: 20px;" class="btn btn-primary btn-xs"  name="btn" type="submit" value="@prod.id">
+                                                            View
+                                                       </button>
                                                      
 
-                                                      <a href="@Url.Action("DeletProduct", "Home", new { productId = prod.id })" class="social-info" onclick="document.getElementById('Deletproduct_@prod.id').submit();">
-                                                           <span class="lnr lnr-trash"></span>
-                                                           <img src="~/Templaid/css/recycle-bin (1).png" alt="Stergerea produsului" style="width: 20px; height: 20px;">
-                                                      </a>
-
-                                                 </div>
-                                            </div>
-                                       </div>
-
-
-
+                                                       <a href="@Url.Action("DeletProduct", "Home", new { productId = prod.id })" class="social-info" style="float: right; margin-right: 20px; margin-left: 35px; margin-top: 20px;" onclick="document.getElementById('Deletproduct_@prod.id').submit();">
+                                                            <span class="lnr lnr-trash"></span>
+                                                            <img src="~/Templaid/css/recycle-bin (1).png" alt="Stergerea produsului" style="width: 20px; height: 20px;">
+                                                       </a>
+                                                       <a class="nav-link dropdown-toggle waves-effect waves-light" href="#" style="float: right; margin-right: 20px;">
+                                                            <img src="~/Templaid/css/shopping-cart.png" alt="Imagine" class="noti-icon-img" style="display: block; margin-left: 20px;">
+                                                            <span style="display: block;">Add to Cart</span>
+                                                       </a>
+                                                  </div>
+                                             </div>
+                                        </div>                                     
                                    }
-                                    <div class="single-product w-25 m-3">
-                                   <form id="logoutForm" action="@Url.Action("AddProduct", "Home")" method="post" enctype="multipart/form-data" style="display: inline;">
-                                        <!-- Input pentru încărcarea imaginii -->
-                                        <input type="file" name="file" id="file" accept="image/*" style="display: none;">
+                                   <div class="single-product w-25 m-3">
+                                        <form id="logoutForm" action="@Url.Action("AddProduct", "Home")" method="post" enctype="multipart/form-data" style="display: inline;">
+                                             <!-- Input pentru încărcarea imaginii -->
+                                             <input type="file" name="file" id="file" accept="image/*" style="display: none;">
 
-                                        <!-- Imaginea pe care utilizatorul o poate face clic pentru a încărca o imagine -->
-                                        <label for="file">
-                                             <a href="@Url.Action("AddProduct", "Home")">
-                                                  <img src="~/Templaid/css/plus.png" alt="Imagine" style="cursor: pointer;">
-                                             </a>
-                                        </label>
-                                   </form>
-                                         </div>
+                                             <!-- Imaginea pe care utilizatorul o poate face clic pentru a încărca o imagine -->
+                                             <label for="file">
+                                                  <a href="@Url.Action("AddProduct", "Home")">
+                                                       <img src="~/Templaid/css/plus.png" alt="Imagine" style="cursor: pointer;">
+                                                  </a>
+                                             </label>
+                                        </form>
+                                   </div>
                               }
                          }
                     </tbody>
