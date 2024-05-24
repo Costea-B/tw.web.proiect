@@ -148,7 +148,7 @@ namespace WebAplication.BusinessLogics.Core
                     // Convertește fiecare ProductDb într-un Product și colectează rezultatele într-o listă de Product
                     products = productDbQuery.Select(productDb => new Product
                     {                        
-                         id = productDb.id,
+                         idsneakers = productDb.idsneakers,
                          name = productDb.name,
                          size = productDb.size,
                          price = productDb.price,
@@ -169,7 +169,7 @@ namespace WebAplication.BusinessLogics.Core
                ProductDb product;
                using (var db = new ProductContext())
                {
-                    product = db.Product.FirstOrDefault(u => u.id == id );
+                    product = db.Product.FirstOrDefault(u => u.idsneakers == id );
                }
 
                if (product == null) return null;              
@@ -196,7 +196,7 @@ namespace WebAplication.BusinessLogics.Core
                ProductDb product;
                using (var db = new ProductContext())
                {
-                    product = db.Product.FirstOrDefault(u => u.id == productId);
+                    product = db.Product.FirstOrDefault(u => u.idsneakers == productId);
                     if( product != null)
                     {
                          db.Product.Remove(product);

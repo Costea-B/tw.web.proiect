@@ -592,6 +592,7 @@
     <Content Include="Views\Home\UserProfile.cshtml" />
     <Content Include="Views\Cart\Shopping.cshtml" />
     <Content Include="Views\Home\ListCLient.cshtml" />
+    <Content Include="Views\Home\Sort.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

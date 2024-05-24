@@ -74,7 +74,7 @@ namespace WebApplication1.Controllers
           [HttpPost]
           public ActionResult Product(string btn)
           {
-               return RedirectToAction("Product", "Home", new { @p = btn });
+               return RedirectToAction("Product", "Home", new { @p = btn  });
           }
             [AdminModeAtributte]
           public ActionResult Dashboard2()
@@ -115,7 +115,7 @@ namespace WebApplication1.Controllers
                     var RProducr = new Product
                     {
                          name = model.name,
-                         id = model.id,
+                         idsneakers = model.id,
                          size = model.size,
                          price = model.price,
                          img = img2,
@@ -183,6 +183,24 @@ namespace WebApplication1.Controllers
 
                };
                return View(data);
+          }
+
+          
+          public ActionResult Sort()
+          {
+               var product = Request.QueryString["p"];
+               var user = System.Web.HttpContext.Current.GetMySessionObject();
+               GlobalModel data = new GlobalModel
+               {
+                    Username = user.Username,
+                    Level = user.Level,
+               };
+               return View(data);
+          }
+          [HttpPost]
+          public ActionResult Sort(string subcategori)
+          {
+               return RedirectToAction("Sort", "Home", new { @p = subcategori });
           }
 
 
