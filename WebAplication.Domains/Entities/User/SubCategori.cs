@@ -8,6 +8,7 @@ namespace WebAplication.Domains.Entities.User
 {
      public enum SubCategori
      {
+          Sneakers,
           Casual,
           Running,
           Gym,

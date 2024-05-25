@@ -100,12 +100,12 @@
 
 
 
-          <ul class="navigation-menu in">
+          <ul class="navigation-menu in" style=" display: flex;">
 
 
                @if (user.Level == WebAplication.Domains.Entities.User.URole.Admin)
                {
-                    <li class="has-submenu active">
+                    <li class="has-submenu active" style="display: block;">
                          <a href="#" class="active">
                               <i class="remixicon-dashboard-line"></i>Dashboards <div class="arrow-down" bis_skin_checked="1"></div>
                          </a>
@@ -130,11 +130,9 @@
                                    <li>
                                         <a href="@Url.Action("Sort", "Home", new {subcategori = "Sneakers"})">Sneakers</a>
                                    </li>
+                                 
                                    <li>
-                                        <a href="email-read.html">Casual leather shoes</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Slip-on</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Slip-on"})">Slip-on</a>
                                    </li>
 
                               </ul>
@@ -144,13 +142,11 @@
                               <a href="#">Running shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
                               <ul class="submenu">
                                    <li>
-                                        <a href="email-inbox.html">Asphalt</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Asphalt"})">Asphalt</a>
                                    </li>
+                                  
                                    <li>
-                                        <a href="email-read.html">University</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Trail</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Trail"})">Trail</a>
                                    </li>
 
                               </ul>
@@ -159,45 +155,19 @@
                               <a href="#">Gym shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
                               <ul class="submenu">
                                    <li>
-                                        <a href="email-inbox.html">Basket-ball</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Basket-ball"})">Basket-ball</a>
                                    </li>
                                    <li>
-                                        <a href="email-read.html">Volley-ball</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Volley-ball"})">Volley-ball</a>
                                    </li>
-                                   <li>
-                                        <a href="email-compose.html">Handball</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Table tennis</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Table tennis</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Badminton</a>
-                                   </li>
+                                  
 
                               </ul>
                          </li>
                          <li>
-                              <a href="layouts-center-menu.html">Hiking shoes</a>
+                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Hiking_shoes"})">Hiking shoes</a>
                          </li>
-                         <li>
-                              <a href="layouts-preloader.html">Sandals</a>
-                         </li>
-                         <li>
-                              <a href="layouts-normal-header.html">Flip flops</a>
-                         </li>
-                         <li>
-                              <a href="layouts-boxed.html">Football boots</a>
-                         </li>
-                         <li>
-                              <a href="layouts-boxed.html">Cycling shoes</a>
-                         </li>
-                         <li>
-                              <a href="layouts-boxed.html">Tennis shoes</a>
-                         </li>
-
+                                                                                                                  
                     </ul>
                </li>
 
@@ -208,13 +178,11 @@
                               <a href="#">Casual shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
                               <ul class="submenu" style="position: absolute; top: 0; left: 100%;">
                                    <li>
-                                        <a href="email-inbox.html">Sneakers</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Sneakers"})">Sneakers</a>
                                    </li>
+
                                    <li>
-                                        <a href="email-read.html">Casual leather shoes</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Slip-on</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Slip-on"})">Slip-on</a>
                                    </li>
 
                               </ul>
@@ -224,13 +192,11 @@
                               <a href="#">Running shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
                               <ul class="submenu" style="position: absolute; top: 0; left: 100%; ">
                                    <li>
-                                        <a href="email-inbox.html">Asphalt</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Asphalt"})">Asphalt</a>
                                    </li>
+                                  
                                    <li>
-                                        <a href="email-read.html">University</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Trail</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Trail"})">Trail</a>
                                    </li>
 
                               </ul>
@@ -239,42 +205,17 @@
                               <a href="#">Gym shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
                               <ul class="submenu" style="position: absolute; top: 0; left: 100%; ">
                                    <li>
-                                        <a href="email-inbox.html">Basket-ball</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Basket-ball"})">Basket-ball</a>
                                    </li>
                                    <li>
-                                        <a href="email-read.html">Volley-ball</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Handball</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Table tennis</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Table tennis</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Badminton</a>
-                                   </li>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Volley-ball"})">Volley-ball</a>
+                                   </li>                                 
 
                               </ul>
                          </li>
                          <li>
-                              <a href="layouts-center-menu.html">Hiking shoes</a>
-                         </li>
-                         <li>
-                              <a href="layouts-preloader.html">Sandals</a>
-                         </li>
-                         <li>
-                              <a href="layouts-normal-header.html">Flip flops</a>
-                         </li>
-
-                         <li>
-                              <a href="layouts-boxed.html">Cycling shoes</a>
-                         </li>
-                         <li>
-                              <a href="layouts-boxed.html">Tennis shoes</a>
-                         </li>
+                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Hiking_shoes"})">Hiking shoes</a>
+                         </li>                        
 
                     </ul>
                </li>
@@ -286,13 +227,11 @@
                               <a href="#">Casual shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
                               <ul class="submenu" style="position: absolute; top: 0; left: 100%;">
                                    <li>
-                                        <a href="email-inbox.html">Sneakers</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Sneakers"})">Sneakers</a>
                                    </li>
+
                                    <li>
-                                        <a href="email-read.html">Casual leather shoes</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Slip-on</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Slip-on"})">Slip-on</a>
                                    </li>
 
                               </ul>
@@ -302,13 +241,11 @@
                               <a href="#">Running shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
                               <ul class="submenu" style="position: absolute; top: 0; left: 100%;">
                                    <li>
-                                        <a href="email-inbox.html">Asphalt</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Asphalt"})">Asphalt</a>
                                    </li>
+                                   
                                    <li>
-                                        <a href="email-read.html">University</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Trail</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Trail"})">Trail</a>
                                    </li>
 
                               </ul>
@@ -317,36 +254,18 @@
                               <a href="#">Gym shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
                               <ul class="submenu" style="position: absolute; top: 0; left: 100%;">
                                    <li>
-                                        <a href="email-inbox.html">Basket-ball</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Basket-ball"})">Basket-ball</a>
                                    </li>
                                    <li>
-                                        <a href="email-read.html">Volley-ball</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Volley-ball"})">Volley-ball</a>
                                    </li>
-                                   <li>
-                                        <a href="email-compose.html">Handball</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Table tennis</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Table tennis</a>
-                                   </li>
-                                   <li>
-                                        <a href="email-compose.html">Badminton</a>
-                                   </li>
-
+                                  
                               </ul>
                          </li>
                          <li>
-                              <a href="layouts-center-menu.html">Hiking shoes</a>
+                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Hiking_shoes"})">Hiking shoes</a>
                          </li>
 
-                         <li>
-                              <a href="layouts-normal-header.html">Flip flops</a>
-                         </li>
-                         <li>
-                              <a href="layouts-boxed.html">Football boots</a>
-                         </li>
 
                     </ul>
                </li>
