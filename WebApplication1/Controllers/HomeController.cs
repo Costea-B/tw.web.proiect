@@ -31,6 +31,11 @@ namespace WebApplication1.Controllers
 
           }
 
+          public static class GlobalData
+          {
+               public static List<Product> Products { get; set; } = new List<Product>();
+          }
+
 
 
           // GET: Home
@@ -44,6 +49,7 @@ namespace WebApplication1.Controllers
 
                var user = System.Web.HttpContext.Current.GetMySessionObject();
                var produs = _sesion.GetProduct();
+               GlobalData.Products = produs;
                GlobalModel data = new GlobalModel
                {
                     Username = user.Username,
@@ -183,25 +189,37 @@ namespace WebApplication1.Controllers
 
                };
                return View(data);
-          }
+          }          
 
-          
-          public ActionResult Sort()
+
+          public ActionResult Sort(string subcategori, string categori)
           {
                var product = Request.QueryString["p"];
                var user = System.Web.HttpContext.Current.GetMySessionObject();
+               var produse = GlobalData.Products.AsQueryable();
+
+               if (!string.IsNullOrEmpty(categori))
+               {
+                    produse = produse.Where(p => p.categori.ToString() == categori);
+               }
+
+               if (!string.IsNullOrEmpty(subcategori))
+               {
+                    produse = produse.Where(p => p.subCategori.ToString() == subcategori);
+               }               
+               produse = produse.OrderBy(p => p.name);
+
                GlobalModel data = new GlobalModel
                {
                     Username = user.Username,
                     Level = user.Level,
+                    Products = produse.ToList(),
                };
                return View(data);
           }
-          [HttpPost]
-          public ActionResult Sort(string subcategori)
-          {
-               return RedirectToAction("Sort", "Home", new { @p = subcategori });
-          }
+
+          
+
 
 
      }

@@ -1,7 +1,68 @@
 ﻿
 @{
-    ViewBag.Title = "Sort";
+     ViewBag.Title = "Sort";
 }
 
+
+@using System.Web.Optimization
+
+<div class="row">
+     <div class="col-md-12">
+          <div class="table-responsive d-flex flex-wrap p-2 justify-content-center">
+               <div id="resultTarget"></div>
+               <table class="table table-bordered">
+
+                    <tbody>
+                         @using (Html.BeginForm("Product", "Home", FormMethod.Post, new { autocomplete = "off" }))
+                         {
+                              foreach (var prod in Model.Products)
+                              {
+
+
+                                   <div class="single-product w-25 m-3">
+                                        <div class="img-container">
+                                             <img class="img-fluid img-thumbnail" src="@Url.Content(prod.img)" alt="Responsive image" style="width: 400px; height: 400px">
+                                        </div>
+                                        <div class="product-details" style="text-align: center">
+                                             <h6>@prod.name</h6>
+                                             <div class="price">
+                                                  <h6>@prod.price</h6>
+                                             </div>
+                                             <div class="prd-bottom" style="display: flex; justify-content: space-between; align-items: center;">
+                                                  <a class="nav-link dropdown-toggle waves-effect waves-light" href="#" style="flex: 1; text-align: center;">
+                                                       <img src="~/Templaid/css/shopping-cart.png" alt="Imagine" class="noti-icon-img" style="display: block; margin-left: auto; margin-right: auto;">
+                                                       <span style="display: block;">Add to Cart</span>
+                                                  </a>
+
+                                                  <button style="flex: 1; text-align: center; margin-right: 20px;" class="btn btn-primary btn-xs" name="btn" type="submit" value="@prod.idsneakers">
+                                                       View
+                                                  </button>
+                                             </div>
+                                        </div>
+                                   </div>
+                              }
+                         }
+                    </tbody>
+               </table>
+          </div>
+     </div>
+</div>
+@section Scripts {
+     @Scripts.Render("~/bundles/unobtrusive/js")
+
+     <script type="text/javascript">
+          function success(data) {
+               if (data.RedirectUrl) {
+                    window.location.href = data.RedirectUrl;
+               } else {
+                    $("#resultTarget").text(data.msg);
+               }
+          }
+
+          function fail(data) {
+               $("#resultTarget").text(data);
+          }
+     </script>
+}
 
 
