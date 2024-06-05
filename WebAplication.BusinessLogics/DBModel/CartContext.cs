@@ -4,18 +4,18 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebAplication.Domain.Entities.User;
 using WebAplication.Domains.Entities.User;
 
 namespace WebAplication.BusinessLogics.DBModel
 {
-        public class SessionContext : DbContext
-        {
-        public SessionContext() :
+    public class CartContext : DbContext
+    {
+        public CartContext() :
             base("name = WebApplication")
         {
         }
-        public virtual DbSet<Session> Sessions { get; set; }
 
-        }
+        public virtual DbSet<CartDb> Cart { get; set; }
+
+    }
 }

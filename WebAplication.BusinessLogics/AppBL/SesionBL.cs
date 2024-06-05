@@ -61,5 +61,9 @@ namespace WebAplication.BusinessLogics.AppBL
           {
                return SelectAllUser();
           }
-     }
+        public List<Product> GetCartProducts(string name)
+        {
+            return GetCartProductsAction(name);
+        }
+    }
 }

@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Entities\Response\Respt.cs" />
     <Compile Include="Entities\Response\ULoginResp.cs" />
+    <Compile Include="Entities\User\CartDb.cs" />
     <Compile Include="Entities\User\Categori.cs" />
     <Compile Include="Entities\User\Product.cs" />
     <Compile Include="Entities\User\ProductDb.cs" />

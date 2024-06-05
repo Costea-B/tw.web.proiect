@@ -21,6 +21,6 @@ namespace WebAplication.BusinessLogics.Interface
           void DeletProductById(string productId);
           void DeletUserById(int UserId);
           List<Users> GetUser();
-
+        List<Product> GetCartProducts(string name);
     }
 }

@@ -13,24 +13,32 @@ namespace WebApplication1.Controllers
 {
     public class CartController : BaseController
     {
-          private readonly ILogin _sesion;
+        private readonly ILogin _sesion;
 
-          public CartController()
-          {
-               var bl = new BussinesLogic();
-               _sesion = bl.GetLoginBL();
+        public CartController()
+        {
+            var bl = new BussinesLogic();
+            _sesion = bl.GetLoginBL();
 
-          }
-          public ActionResult Shopping()
-          {
-               var user = System.Web.HttpContext.Current.GetMySessionObject();
-               GlobalModel data = new GlobalModel
-               {
-                    Username = user.Username,
-                    Level = user.Level,                   
-               };
+        }
+        public static class GlobalData
+        {
+            public static List<Product> Products { get; set; } = new List<Product>();
+        }
 
-               return View(data);
-          }
-     }
+        public ActionResult Shopping()
+        {
+            var user = System.Web.HttpContext.Current.GetMySessionObject();
+            var produs = _sesion.GetCartProducts(user.Username);
+            GlobalData.Products = produs;
+            GlobalModel data = new GlobalModel
+            {
+                Username = user.Username,
+                Level = user.Level,
+                Products = produs,
+            };
+
+            return View(data);
+        }
+    }
 }

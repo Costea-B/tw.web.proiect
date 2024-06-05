@@ -18,8 +18,8 @@ using WebAplication.Helpe;
 
 namespace WebAplication.BusinessLogics.Core
 {
-     public class UserApi
-     {
+    public class UserApi
+    {
         public ULoginResp RLoginUPService(ULoginData data)
         {
             UDbTable user;
@@ -137,109 +137,158 @@ namespace WebAplication.BusinessLogics.Core
         }
 
         public List<Product> SelectAllProducts()
-          {
-               List<Product> products;
+        {
+            List<Product> products;
 
-               using (var db = new ProductContext())
-               {
-                    // Preia toate produsele din baza de date sub forma unui IQueryable<ProductDb>
-                    IQueryable<ProductDb> productDbQuery = db.Product;
+            using (var db = new ProductContext())
+            {
+                // Preia toate produsele din baza de date sub forma unui IQueryable<ProductDb>
+                IQueryable<ProductDb> productDbQuery = db.Product;
 
-                    // Convertește fiecare ProductDb într-un Product și colectează rezultatele într-o listă de Product
-                    products = productDbQuery.Select(productDb => new Product
-                    {                        
-                         idsneakers = productDb.idsneakers,
-                         name = productDb.name,
-                         size = productDb.size,
-                         price = productDb.price,
-                         img = productDb.img,
-                         quantity = productDb.quantity
+                // Convertește fiecare ProductDb într-un Product și colectează rezultatele într-o listă de Product
+                products = productDbQuery.Select(productDb => new Product
+                {
+                    idsneakers = productDb.idsneakers,
+                    name = productDb.name,
+                    size = productDb.size,
+                    price = productDb.price,
+                    img = productDb.img,
+                    quantity = productDb.quantity
 
-                    }).ToList();
-               }
+                }).ToList();
+            }
 
 
 
-               return products;
-          }
+            return products;
+        }
 
-          public Product SercheProduct(string id)
-          {
+        public Product SercheProduct(string id)
+        {
 
-               ProductDb product;
-               using (var db = new ProductContext())
-               {
-                    product = db.Product.FirstOrDefault(u => u.idsneakers == id );
-               }
+            ProductDb product;
+            using (var db = new ProductContext())
+            {
+                product = db.Product.FirstOrDefault(u => u.idsneakers == id);
+            }
 
-               if (product == null) return null;              
-               var product1 = Mapper.Map<Product>(product);
+            if (product == null) return null;
+            var product1 = Mapper.Map<Product>(product);
 
-               return product1;
-          }
+            return product1;
+        }
 
-          public Respt NewProduct(Product product)
-          {
-               var newproduct = Mapper.Map<ProductDb>(product);               
+        public Respt NewProduct(Product product)
+        {
+            var newproduct = Mapper.Map<ProductDb>(product);
 
-               using (var db = new ProductContext())
-               {
-                    db.Product.Add(newproduct);
+            using (var db = new ProductContext())
+            {
+                db.Product.Add(newproduct);
+                db.SaveChanges();
+            }
+
+            return new Respt { Status = true };
+        }
+
+        public void DeleteProduct(string productId)
+        {
+            ProductDb product;
+            using (var db = new ProductContext())
+            {
+                product = db.Product.FirstOrDefault(u => u.idsneakers == productId);
+                if (product != null)
+                {
+                    db.Product.Remove(product);
                     db.SaveChanges();
-               }
+                }
+            }
 
-               return new Respt { Status = true };
-          }
+        }
+        public void DeleteUser(int UserId)
+        {
+            UDbTable User;
+            using (var db = new UserContext())
+            {
+                User = db.Users.FirstOrDefault(u => u.Id == UserId);
+                if (User != null)
+                {
+                    db.Users.Remove(User);
+                    db.SaveChanges();
+                }
+            }
 
-          public void DeleteProduct(string productId)
-          {
-               ProductDb product;
-               using (var db = new ProductContext())
-               {
-                    product = db.Product.FirstOrDefault(u => u.idsneakers == productId);
-                    if( product != null)
-                    {
-                         db.Product.Remove(product);
-                         db.SaveChanges();
-                    }
-               }               
+        }
 
-          }
-          public void DeleteUser(int UserId)
-          {
-               UDbTable User;
-               using (var db = new UserContext())
-               {
-                    User = db.Users.FirstOrDefault(u => u.Id == UserId);
-                    if (User != null)
-                    {
-                         db.Users.Remove(User);
-                         db.SaveChanges();
-                    }
-               }
-               
-          }
+        public List<Users> SelectAllUser()
+        {
+            List<Users> users;
 
-          public List<Users> SelectAllUser()
-          {
-               List<Users> users;
+            using (var db = new UserContext())
+            {
+                // Preia toate produsele din baza de date sub forma unui IQueryable<ProductDb>
+                IQueryable<UDbTable> userDbQuery = db.Users;
 
-               using (var db = new UserContext())
-               {
-                    // Preia toate produsele din baza de date sub forma unui IQueryable<ProductDb>
-                    IQueryable<UDbTable> userDbQuery = db.Users;
+                // Convertește fiecare ProductDb într-un Product și colectează rezultatele într-o listă de Product
+                users = userDbQuery.Select(userDb => new Users
+                {
+                    Id = userDb.Id,
+                    Username = userDb.UserName,
+                    Email = userDb.Email,
+                    Level = userDb.Level,
 
-                    // Convertește fiecare ProductDb într-un Product și colectează rezultatele într-o listă de Product
-                    users = userDbQuery.Select(userDb => new Users
-                    {                        
-                        Id = userDb.Id,
-                        Username = userDb.UserName,
-                        Email = userDb.Email,
-                        Level= userDb.Level,
+                }).ToList();
+            }
+            return users;
+        }
 
-                    }).ToList();
-               }
-               return users;
-          }
-     }
+        public List<Product> GetCartProductsAction(string name)
+        {
+            List<Product> products;
+            CartDb cartDb;
+
+            using (var db = new CartContext())
+            {
+                cartDb = db.Cart.FirstOrDefault(u => u.UserName == name);
+
+            }
+
+            HashSet<string> productIds = new HashSet<string>
+    {
+        cartDb.Produc1,
+        cartDb.Produc2,
+        cartDb.Produc3,
+        cartDb.Produc4,
+        cartDb.Produc5,
+        cartDb.Produc6,
+        cartDb.Produc7,
+        cartDb.Produc8,
+        cartDb.Produc9,
+        cartDb.Produc10
+    };
+
+            // Filtrăm identificatorii nenuli
+            productIds.RemoveWhere(id => string.IsNullOrEmpty(id));
+
+
+            using (var db = new ProductContext())
+            {
+                var productsDb = db.Product.Where(p => productIds.Contains(p.idsneakers)).ToList();
+
+                products = productsDb.Select(productDb => new Product
+                {
+                    idsneakers = productDb.idsneakers,
+                    name = productDb.name,
+                    size = productDb.size,
+                    price = productDb.price,
+                    img = productDb.img,
+
+
+                }).ToList();
+            }
+
+
+            return products;
+        }
+    }
 }
