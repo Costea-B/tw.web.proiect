@@ -11,7 +11,7 @@ namespace WebAplication.BusinessLogics.DBModel
     public class CartContext : DbContext
     {
         public CartContext() :
-            base("name = WebApplication")
+            base("name = WebAplication")
         {
         }
 

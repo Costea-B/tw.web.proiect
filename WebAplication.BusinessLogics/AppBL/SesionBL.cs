@@ -65,5 +65,10 @@ namespace WebAplication.BusinessLogics.AppBL
         {
             return GetCartProductsAction(name);
         }
-    }
+
+          public void AddProductInCartAction(string userName, string productId)
+          {
+               AddProductInCart(userName, productId);
+          }
+     }
 }

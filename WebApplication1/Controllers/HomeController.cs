@@ -218,7 +218,14 @@ namespace WebApplication1.Controllers
                return View(data);
           }
 
-          
+
+          [HttpGet]
+          public ActionResult AddProductInCart(string productId)
+          {
+               var user = System.Web.HttpContext.Current.GetMySessionObject();
+               _sesion.AddProductInCartAction(user.Username, productId);
+               return RedirectToAction("Index", "Home");
+          }
 
 
 

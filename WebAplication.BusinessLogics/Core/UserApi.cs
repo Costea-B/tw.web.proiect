@@ -290,5 +290,44 @@ namespace WebAplication.BusinessLogics.Core
 
             return products;
         }
-    }
+
+
+          public void AddProductInCart(string userName, string productId)
+          {
+               using (var db = new CartContext())
+               {
+                    // Obține coșul utilizatorului
+                    var cartDb = db.Cart.FirstOrDefault(u => u.UserName == userName);
+
+                    // Dacă coșul nu există, creează unul nou
+                    if (cartDb == null)
+                    {
+                         cartDb = new CartDb
+                         {
+                              UserName = userName,
+                              Produc1 = productId // adaugă produsul în primul slot
+                                                  // inițializează alte câmpuri dacă este necesar
+                         };
+                         db.Cart.Add(cartDb);
+                    }
+                    else
+                    {
+                         // Adaugă produsul într-un slot gol
+                         if (string.IsNullOrEmpty(cartDb.Produc1)) cartDb.Produc1 = productId;
+                         else if (string.IsNullOrEmpty(cartDb.Produc2)) cartDb.Produc2 = productId;
+                         else if (string.IsNullOrEmpty(cartDb.Produc3)) cartDb.Produc3 = productId;
+                         else if (string.IsNullOrEmpty(cartDb.Produc4)) cartDb.Produc4 = productId;
+                         else if (string.IsNullOrEmpty(cartDb.Produc5)) cartDb.Produc5 = productId;
+                         else if (string.IsNullOrEmpty(cartDb.Produc6)) cartDb.Produc6 = productId;
+                         else if (string.IsNullOrEmpty(cartDb.Produc7)) cartDb.Produc7 = productId;
+                         else if (string.IsNullOrEmpty(cartDb.Produc8)) cartDb.Produc8 = productId;
+                         else if (string.IsNullOrEmpty(cartDb.Produc9)) cartDb.Produc9 = productId;
+                         else if (string.IsNullOrEmpty(cartDb.Produc10)) cartDb.Produc10 = productId;
+                    }
+
+                    // Salvează modificările în baza de date
+                    db.SaveChanges();
+               }
+          }
+     }
 }
