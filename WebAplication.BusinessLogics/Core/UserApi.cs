@@ -178,69 +178,7 @@ namespace WebAplication.BusinessLogics.Core
             return product1;
         }
 
-        public Respt NewProduct(Product product)
-        {
-            var newproduct = Mapper.Map<ProductDb>(product);
-
-            using (var db = new ProductContext())
-            {
-                db.Product.Add(newproduct);
-                db.SaveChanges();
-            }
-
-            return new Respt { Status = true };
-        }
-
-        public void DeleteProduct(string productId)
-        {
-            ProductDb product;
-            using (var db = new ProductContext())
-            {
-                product = db.Product.FirstOrDefault(u => u.idsneakers == productId);
-                if (product != null)
-                {
-                    db.Product.Remove(product);
-                    db.SaveChanges();
-                }
-            }
-
-        }
-        public void DeleteUser(int UserId)
-        {
-            UDbTable User;
-            using (var db = new UserContext())
-            {
-                User = db.Users.FirstOrDefault(u => u.Id == UserId);
-                if (User != null)
-                {
-                    db.Users.Remove(User);
-                    db.SaveChanges();
-                }
-            }
-
-        }
-
-        public List<Users> SelectAllUser()
-        {
-            List<Users> users;
-
-            using (var db = new UserContext())
-            {
-                // Preia toate produsele din baza de date sub forma unui IQueryable<ProductDb>
-                IQueryable<UDbTable> userDbQuery = db.Users;
-
-                // Convertește fiecare ProductDb într-un Product și colectează rezultatele într-o listă de Product
-                users = userDbQuery.Select(userDb => new Users
-                {
-                    Id = userDb.Id,
-                    Username = userDb.UserName,
-                    Email = userDb.Email,
-                    Level = userDb.Level,
-
-                }).ToList();
-            }
-            return users;
-        }
+        
 
         public List<Product> GetCartProductsAction(string name)
         {

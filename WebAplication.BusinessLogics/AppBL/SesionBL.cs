@@ -31,44 +31,8 @@ namespace WebAplication.BusinessLogics.AppBL
           public Users GetUserByCookie(string apiCookieValue)
           {
                return GetCookie(apiCookieValue);
-          }
-
-          public List<Product> GetProduct()
-          {
-               return SelectAllProducts();
-          }
-
-          public Product SerchProductbyid(string id)
-          {
-               return SercheProduct(id);
-          }
-
-          public Respt RegistNewPRoduct(Product product)
-          {
-               return NewProduct(product);
-          }
-
-          public void DeletProductById(string productId)
-          {
-               DeleteProduct(productId);
-          }
-          public void DeletUserById(int UserId)
-          {
-               DeleteUser(UserId);
-          }
-
-          public List<Users> GetUser()
-          {
-               return SelectAllUser();
-          }
-        public List<Product> GetCartProducts(string name)
-        {
-            return GetCartProductsAction(name);
-        }
-
-          public void AddProductInCartAction(string userName, string productId)
-          {
-               AddProductInCart(userName, productId);
-          }
+          }         
+         
+       
      }
 }

@@ -56,7 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppBL\CartBL.cs" />
+    <Compile Include="AppBL\ProductBL.cs" />
     <Compile Include="AppBL\SesionBL.cs" />
+    <Compile Include="AppBL\UserBL.cs" />
     <Compile Include="BussinesLogic.cs" />
     <Compile Include="Core\AdminApi.cs" />
     <Compile Include="Core\UserApi.cs" />
@@ -64,7 +67,10 @@
     <Compile Include="DBModel\ProductContext.cs" />
     <Compile Include="DBModel\SessionContext.cs" />
     <Compile Include="DBModel\UserContext.cs" />
+    <Compile Include="Interface\ICart.cs" />
     <Compile Include="Interface\ILogin.cs" />
+    <Compile Include="Interface\IProduct.cs" />
+    <Compile Include="Interface\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

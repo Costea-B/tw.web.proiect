@@ -23,11 +23,17 @@ namespace WebApplication1.Controllers
      public class HomeController : BaseController
      {
           private readonly ILogin _sesion;
+          private readonly IProduct _product;
+          private readonly IUser _user;
+          private readonly ICart _cart;
 
           public HomeController()
           {
                var bl = new BussinesLogic();
                _sesion = bl.GetLoginBL();
+               _product = bl.GetProductBL();
+               _user = bl.GetUserBL();
+               _cart = bl.GetCartBL();
 
           }
 
@@ -48,7 +54,7 @@ namespace WebApplication1.Controllers
                }
 
                var user = System.Web.HttpContext.Current.GetMySessionObject();
-               var produs = _sesion.GetProduct();
+               var produs = _product.GetProduct();
                GlobalData.Products = produs;
                GlobalModel data = new GlobalModel
                {
@@ -66,7 +72,7 @@ namespace WebApplication1.Controllers
                
                var product = Request.QueryString["p"];
                var user = System.Web.HttpContext.Current.GetMySessionObject();
-               var products = _sesion.SerchProductbyid(product);
+               var products = _product.SerchProductbyid(product);
                GlobalModel data = new GlobalModel
                {
                     Username = user.Username,
@@ -87,7 +93,7 @@ namespace WebApplication1.Controllers
           {
               
                var user = System.Web.HttpContext.Current.GetMySessionObject();
-               var produs = _sesion.GetProduct();
+               var produs = _product.GetProduct();
                GlobalModel data = new GlobalModel
                {
                     Username = user.Username,
@@ -131,7 +137,7 @@ namespace WebApplication1.Controllers
                          description = model.description,
                     };
 
-                    Respt resp = _sesion.RegistNewPRoduct(RProducr);
+                    Respt resp = _product.RegistNewPRoduct(RProducr);
 
                }
 
@@ -168,13 +174,13 @@ namespace WebApplication1.Controllers
           [AdminModeAtributte]
           public ActionResult DeletProduct(string productId)
           {
-               _sesion.DeletProductById(productId);
+               _product.DeletProductById(productId);
 
                return RedirectToAction("Index", "Home");
           }
           public ActionResult DeletUser(int UserId)
           {
-               _sesion.DeletUserById(UserId);
+               _user.DeletUserById(UserId);
 
                return RedirectToAction("ListClient", "Home");
           }
@@ -183,7 +189,7 @@ namespace WebApplication1.Controllers
           public ActionResult ListClient()
           {
               var user = System.Web.HttpContext.Current.GetMySessionObject();
-               var anyuser = _sesion.GetUser();
+               var anyuser = _user.GetUser();
                GlobalModel data = new GlobalModel
                {
                     Username = user.Username,
@@ -226,7 +232,7 @@ namespace WebApplication1.Controllers
           public ActionResult AddProductInCart(string productId)
           {
                var user = System.Web.HttpContext.Current.GetMySessionObject();
-               _sesion.AddProductInCartAction(user.Username, productId);
+               _cart.AddProductInCartAction(user.Username, productId);
                return RedirectToAction("Index", "Home");
           }
 

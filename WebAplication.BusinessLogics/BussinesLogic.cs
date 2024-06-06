@@ -14,6 +14,18 @@ namespace WebAplication.BusinessLogics
           {    
                return new SesionBL();
           }
+          public IProduct GetProductBL()
+          {
+               return new ProductBL();
+          }
+          public IUser GetUserBL()
+          {
+               return new UserBL();
+          }
+          public ICart GetCartBL()
+          {
+               return new CartBL();
+          }
 
      }
 }

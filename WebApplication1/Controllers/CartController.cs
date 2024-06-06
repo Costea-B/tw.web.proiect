@@ -14,11 +14,13 @@ namespace WebApplication1.Controllers
     public class CartController : BaseController
     {
         private readonly ILogin _sesion;
+          private readonly ICart _cart;
 
-        public CartController()
+          public CartController()
         {
             var bl = new BussinesLogic();
             _sesion = bl.GetLoginBL();
+            _cart = bl.GetCartBL();
 
         }
         public static class GlobalData
@@ -29,7 +31,7 @@ namespace WebApplication1.Controllers
         public ActionResult Shopping()
         {
             var user = System.Web.HttpContext.Current.GetMySessionObject();
-            var produs = _sesion.GetCartProducts(user.Username);
+            var produs = _cart.GetCartProducts(user.Username);
             GlobalData.Products = produs;
             GlobalModel data = new GlobalModel
             {
