@@ -126,6 +126,9 @@ namespace WebApplication1.Controllers
                          price = model.price,
                          img = img2,
                          quantity = model.quantity,
+                         categori = model.categori,
+                         subCategori = model.subCategori,
+                         description = model.description,
                     };
 
                     Respt resp = _sesion.RegistNewPRoduct(RProducr);

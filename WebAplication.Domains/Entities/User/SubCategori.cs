@@ -9,11 +9,9 @@ namespace WebAplication.Domains.Entities.User
      public enum SubCategori
      {
           Sneakers,
-          Casual,
+          Slip_on,
           Running,
           Gym,
           Hiking,
-          Sandals,
-          Flip,
      }
 }

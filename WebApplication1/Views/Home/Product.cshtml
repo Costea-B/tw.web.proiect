@@ -23,7 +23,28 @@
                     <div class="col-lg-5 offset-lg-1">
                          <div class="s_product_text">
                               <h3>@produse.name</h3>
-                              <h2>@produse.price</h2>
+                              <h2>@produse.price $</h2>
+                              @if (produse.categori.ToString() == "Man")
+                              {
+                                   <a class="nav-link dropdown-toggle waves-effect waves-light" style="display: flex; align-items: center;" href="#">
+                                        <img src="~/Templaid/css/bussiness-man.png" alt="Imagine" class="noti-icon-img" style="margin-right: 5px;">
+                                        <span>Gen :@produse.categori </span>
+                                   </a>
+                              }
+                              else if (produse.categori.ToString() == "Woman")
+                              {
+                                   <a class="nav-link dropdown-toggle waves-effect waves-light" style="display: flex; align-items: center;" href="#">
+                                        <img src="~/Templaid/css/woman.png" alt="Imagine" class="noti-icon-img" style="margin-right: 5px;">
+                                        <span>Gen :@produse.categori </span>
+                                   </a>
+                              }
+                              else if (produse.categori.ToString() == "Kids")
+                              {
+                                   <a class="nav-link dropdown-toggle waves-effect waves-light" style="display: flex; align-items: center;" href="#">
+                                        <img src="~/Templaid/css/baby-boy.png" alt="Imagine" class="noti-icon-img" style="margin-right: 5px;">
+                                        <span>Gen :@produse.categori </span>
+                                   </a>
+                              }
 
                               <a class="nav-link dropdown-toggle waves-effect waves-light" style="display: flex; align-items: center;" href="#">
                                    <img src="~/Templaid/images/running-shoe (1).png" alt="Imagine" class="noti-icon-img" style="margin-right: 5px;">
@@ -36,10 +57,9 @@
 
 
                               <p>
-                                   Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for
-                                   something that can make your interior look awesome, and at the same time give you the pleasant warm feeling
-                                   during the winter.
+                                   @produse.description
                               </p>
+
 
                               <div class="card_area d-flex align-items-center">
                                    <a class="nav-link dropdown-toggle waves-effect waves-light" href="#">

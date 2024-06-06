@@ -120,7 +120,7 @@
                     </li>
                }
                <li class="has-submenu">
-                    <a href="#">
+                    <a href="@Url.Action("Sort", "Home", new {categori = "Man"})">
                          <img src="~/Templaid/css/bussiness-man.png" alt="Imagine" /><span style="color: white;">Man</span> <div class="arrow-down" bis_skin_checked="1" style="color: white;"></div>
                     </a>
                     <ul class="submenu">
@@ -130,150 +130,99 @@
                                    <li>
                                         <a href="@Url.Action("Sort", "Home", new {subcategori = "Sneakers", categori = "Man"})">Sneakers</a>
                                    </li>
-                                 
+
                                    <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Slip-on"})">Slip-on</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Slip_on" , categori = "Man"})">Slip-on</a>
                                    </li>
 
                               </ul>
                          </li>
 
-                         <li class="has-submenu">
-                              <a href="#">Running shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
-                              <ul class="submenu">
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Asphalt"})">Asphalt</a>
-                                   </li>
-                                  
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Trail"})">Trail</a>
-                                   </li>
+                         <li>
+                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Running" , categori = "Man"})">Running shoes </a>
 
-                              </ul>
-                         </li>
-                         <li class="has-submenu">
-                              <a href="#">Gym shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
-                              <ul class="submenu">
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Basket-ball"})">Basket-ball</a>
-                                   </li>
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Volley-ball"})">Volley-ball</a>
-                                   </li>
-                                  
-
-                              </ul>
                          </li>
                          <li>
-                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Hiking_shoes"})">Hiking shoes</a>
-                         </li>
-                                                                                                                  
-                    </ul>
-               </li>
+                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Gym" , categori = "Man"})">Gym shoes </a>
 
-               <li class="has-submenu">
-                    <a href="#"> <img src="~/Templaid/css/woman.png" alt="Imagine" /><span style="color: white;"> Women</span><div class="arrow-down" bis_skin_checked="1" style="color: white;"></div></a>
-                    <ul class="submenu">
-                         <li class="has-submenu">
-                              <a href="#">Casual shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
-                              <ul class="submenu" style="position: absolute; top: 0; left: 100%;">
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Sneakers"})">Sneakers</a>
-                                   </li>
-
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Slip-on"})">Slip-on</a>
-                                   </li>
-
-                              </ul>
-                         </li>
-
-                         <li class="has-submenu">
-                              <a href="#">Running shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
-                              <ul class="submenu" style="position: absolute; top: 0; left: 100%; ">
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Asphalt"})">Asphalt</a>
-                                   </li>
-                                  
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Trail"})">Trail</a>
-                                   </li>
-
-                              </ul>
-                         </li>
-                         <li class="has-submenu">
-                              <a href="#">Gym shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
-                              <ul class="submenu" style="position: absolute; top: 0; left: 100%; ">
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Basket-ball"})">Basket-ball</a>
-                                   </li>
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Volley-ball"})">Volley-ball</a>
-                                   </li>                                 
-
-                              </ul>
                          </li>
                          <li>
-                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Hiking_shoes"})">Hiking shoes</a>
-                         </li>                        
+                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Hiking" , categori = "Man"})">Hiking shoes</a>
+                         </li>
 
                     </ul>
                </li>
 
                <li class="has-submenu">
-                    <a href="#"><img src="~/Templaid/css/baby-boy.png" alt="Imagine" /><span style="color: white;">Kids</span><div class="arrow-down" bis_skin_checked="1" style=" color: white;"></div></a>
+                    <a href="@Url.Action("Sort", "Home", new {categori = "Woman"})"> <img src="~/Templaid/css/woman.png" alt="Imagine" /><span style="color: white;"> Women</span><div class="arrow-down" bis_skin_checked="1" style="color: white;"></div></a>
                     <ul class="submenu">
                          <li class="has-submenu">
                               <a href="#">Casual shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
                               <ul class="submenu" style="position: absolute; top: 0; left: 100%;">
                                    <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Sneakers"})">Sneakers</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Sneakers" , categori = "Woman"})">Sneakers</a>
                                    </li>
 
                                    <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Slip-on"})">Slip-on</a>
-                                   </li>
-
-                              </ul>
-                         </li>
-
-                         <li class="has-submenu">
-                              <a href="#">Running shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
-                              <ul class="submenu" style="position: absolute; top: 0; left: 100%;">
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Asphalt"})">Asphalt</a>
-                                   </li>
-                                   
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Trail"})">Trail</a>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Slip_on" , categori = "Woman"})">Slip-on</a>
                                    </li>
 
                               </ul>
                          </li>
-                         <li class="has-submenu">
-                              <a href="#">Gym shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
-                              <ul class="submenu" style="position: absolute; top: 0; left: 100%;">
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Basket-ball"})">Basket-ball</a>
-                                   </li>
-                                   <li>
-                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Volley-ball"})">Volley-ball</a>
-                                   </li>
-                                  
-                              </ul>
+
+                         <li>
+                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Running" , categori = "Woman"})">Running shoes </a>
+
                          </li>
                          <li>
-                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Hiking_shoes"})">Hiking shoes</a>
+                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Gym" , categori = "Woman"})">Gym shoes </a>
+
+                         </li>
+                         <li>
+                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Hiking" , categori = "Woman"})">Hiking shoes</a>
+                         </li>
+
+                    </ul>
+               </li>
+
+               <li class="has-submenu">
+                    <a href="@Url.Action("Sort", "Home", new {categori = "Kids"})"><img src="~/Templaid/css/baby-boy.png" alt="Imagine" /><span style="color: white;">Kids</span><div class="arrow-down" bis_skin_checked="1" style=" color: white;"></div></a>
+                    <ul class="submenu">
+                         <li class="has-submenu">
+                              <a href="#">Casual shoes <div class="arrow-down" bis_skin_checked="1"></div></a>
+                              <ul class="submenu" style="position: absolute; top: 0; left: 100%;">
+                                   <li>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Sneakers" , categori = "Kids"})">Sneakers</a>
+                                   </li>
+
+                                   <li>
+                                        <a href="@Url.Action("Sort", "Home", new {subcategori = "Slip_on" , categori = "Kids"})">Slip-on</a>
+                                   </li>
+
+                              </ul>
+                         </li>
+
+                         <li>
+                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Running" , categori = "Kids"})">Running shoes </a>
+
+                         </li>
+                         <li>
+                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Gym" , categori = "Kids"})">Gym shoes </a>
+
+                         </li>
+                         <li>
+                              <a href="@Url.Action("Sort", "Home", new {subcategori = "Hiking" , categori = "Kids"})">Hiking shoes</a>
                          </li>
 
 
                     </ul>
                </li>
+
 
 
 
 
                <div class="clearfix"></div>
-     </div>
+</div>
 </div>
 <!-- end Topbar -->

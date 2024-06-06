@@ -10,6 +10,6 @@ namespace WebAplication.Domains.Entities.User
      {
           Man,
           Woman,
-          Copchilebanii,
+          Kids,
      }
 }

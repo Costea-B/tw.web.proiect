@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebAplication.Domains.Entities.User;
 
 namespace WebApplication1.Models.User
 {
@@ -13,5 +14,9 @@ namespace WebApplication1.Models.User
           public float size { get; set; }
           public float price { get; set; }
           public int quantity { get; set; }
+          public string description { get; set; }
+          public Categori categori { get; set; }
+          public SubCategori subCategori { get; set; }
+
      }
 }
