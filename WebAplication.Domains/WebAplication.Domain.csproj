@@ -61,6 +61,7 @@
     <Compile Include="Entities\User\Categori.cs" />
     <Compile Include="Entities\User\Product.cs" />
     <Compile Include="Entities\User\ProductDb.cs" />
+    <Compile Include="Entities\User\Produs.cs" />
     <Compile Include="Entities\User\Session.cs" />
     <Compile Include="Entities\User\SubCategori.cs" />
     <Compile Include="Entities\User\UDbTable.cs" />

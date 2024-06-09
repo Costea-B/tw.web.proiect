@@ -142,10 +142,9 @@ namespace WebAplication.BusinessLogics.Core
 
             using (var db = new ProductContext())
             {
-                // Preia toate produsele din baza de date sub forma unui IQueryable<ProductDb>
+               
                 IQueryable<ProductDb> productDbQuery = db.Product;
 
-                // Convertește fiecare ProductDb într-un Product și colectează rezultatele într-o listă de Product
                 products = productDbQuery.Select(productDb => new Product
                 {
                     idsneakers = productDb.idsneakers,
@@ -178,94 +177,59 @@ namespace WebAplication.BusinessLogics.Core
             return product1;
         }
 
-        
+          public List<Product> GetCartProductsAction(string name)
+          {
+               List<Product> products = new List<Product>();
+               CartDb cartDb;
 
-        public List<Product> GetCartProductsAction(string name)
-        {
-            List<Product> products;
-            CartDb cartDb;
+               using (var db = new CartContext())
+               {
+                    cartDb = db.Cart.Include(c => c.Produc).FirstOrDefault(u => u.UserName == name);
+               }
 
-            using (var db = new CartContext())
-            {
-                cartDb = db.Cart.FirstOrDefault(u => u.UserName == name);
+               if (cartDb != null && cartDb.Produc != null)
+               {
+                    using (var db = new ProductContext())
+                    {
+                         var productIds = cartDb.Produc.Select(p => p.IdSneakers).ToList();
+                         var productsDb = db.Product.Where(p => productIds.Contains(p.idsneakers)).ToList();
 
-            }
+                         products = productsDb.Select(productDb => new Product
+                         {
+                              idsneakers = productDb.idsneakers,
+                              name = productDb.name,
+                              size = productDb.size,
+                              price = productDb.price,
+                              img = productDb.img,
+                         }).ToList();
+                    }
+               }
 
-            HashSet<string> productIds = new HashSet<string>
-    {
-        cartDb.Produc1,
-        cartDb.Produc2,
-        cartDb.Produc3,
-        cartDb.Produc4,
-        cartDb.Produc5,
-        cartDb.Produc6,
-        cartDb.Produc7,
-        cartDb.Produc8,
-        cartDb.Produc9,
-        cartDb.Produc10
-    };
-
-            // Filtrăm identificatorii nenuli
-            productIds.RemoveWhere(id => string.IsNullOrEmpty(id));
-
-
-            using (var db = new ProductContext())
-            {
-                var productsDb = db.Product.Where(p => productIds.Contains(p.idsneakers)).ToList();
-
-                products = productsDb.Select(productDb => new Product
-                {
-                    idsneakers = productDb.idsneakers,
-                    name = productDb.name,
-                    size = productDb.size,
-                    price = productDb.price,
-                    img = productDb.img,
-
-
-                }).ToList();
-            }
-
-
-            return products;
-        }
-
+               return products;
+          }
 
           public void AddProductInCart(string userName, string productId)
           {
                using (var db = new CartContext())
-               {
-                    // Obține coșul utilizatorului
-                    var cartDb = db.Cart.FirstOrDefault(u => u.UserName == userName);
-
-                    // Dacă coșul nu există, creează unul nou
+               {                   
+                    var cartDb = db.Cart.Include(c => c.Produc).FirstOrDefault(u => u.UserName == userName);
+                    
                     if (cartDb == null)
                     {
                          cartDb = new CartDb
                          {
                               UserName = userName,
-                              Produc1 = productId // adaugă produsul în primul slot
-                                                  // inițializează alte câmpuri dacă este necesar
+                              Produc = new List<Produs> { new Produs { IdSneakers = productId } }
                          };
                          db.Cart.Add(cartDb);
                     }
                     else
                     {
-                         // Adaugă produsul într-un slot gol
-                         if (string.IsNullOrEmpty(cartDb.Produc1)) cartDb.Produc1 = productId;
-                         else if (string.IsNullOrEmpty(cartDb.Produc2)) cartDb.Produc2 = productId;
-                         else if (string.IsNullOrEmpty(cartDb.Produc3)) cartDb.Produc3 = productId;
-                         else if (string.IsNullOrEmpty(cartDb.Produc4)) cartDb.Produc4 = productId;
-                         else if (string.IsNullOrEmpty(cartDb.Produc5)) cartDb.Produc5 = productId;
-                         else if (string.IsNullOrEmpty(cartDb.Produc6)) cartDb.Produc6 = productId;
-                         else if (string.IsNullOrEmpty(cartDb.Produc7)) cartDb.Produc7 = productId;
-                         else if (string.IsNullOrEmpty(cartDb.Produc8)) cartDb.Produc8 = productId;
-                         else if (string.IsNullOrEmpty(cartDb.Produc9)) cartDb.Produc9 = productId;
-                         else if (string.IsNullOrEmpty(cartDb.Produc10)) cartDb.Produc10 = productId;
+                         cartDb.Produc.Add(new Produs { IdSneakers = productId });
                     }
-
-                    // Salvează modificările în baza de date
                     db.SaveChanges();
                }
           }
+
      }
 }
