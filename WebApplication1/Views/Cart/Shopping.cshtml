@@ -17,7 +17,7 @@
                         foreach (var prod in Model.Products)
                         {
 
-
+                              
                             <div class="single-product w-25 m-3">
                                 <div class="img-container">
                                     <img class="img-fluid img-thumbnail" src="@Url.Content(prod.img)" alt="Responsive image" style="width: 400px; height: 400px">
@@ -28,7 +28,7 @@
                                         <h6>@prod.price</h6>
                                     </div>
                                     <div class="prd-bottom" style="display: flex; justify-content: space-between; align-items: center;">
-                                        <a href="#" class="social-info" style="flex: 1; text-align: center; margin-right: 20px;" onclick="">
+                                        <a href="@Url.Action("DeletProductInCart", "Cart", new {productId = prod.idsneakers })" class="social-info" style="flex: 1; text-align: center; margin-right: 20px;" onclick="">
                                             <span class="lnr lnr-trash"></span>
                                             <img src="~/Templaid/css/recycle-bin (1).png" alt="Stergerea produsului" style="width: 20px; height: 20px; display: block; margin-left: auto; margin-right: auto;">
                                         </a>

@@ -152,7 +152,9 @@ namespace WebAplication.BusinessLogics.Core
                     size = productDb.size,
                     price = productDb.price,
                     img = productDb.img,
-                    quantity = productDb.quantity
+                    quantity = productDb.quantity,
+                    categori = productDb.categori,
+                    subCategori = productDb.subCategori,
 
                 }).ToList();
             }
@@ -228,6 +230,29 @@ namespace WebAplication.BusinessLogics.Core
                          cartDb.Produc.Add(new Produs { IdSneakers = productId });
                     }
                     db.SaveChanges();
+               }
+          }
+
+          public void DeletProductInCart(string username, string productId)
+          {
+               using (var db = new CartContext())
+               {
+                    
+                    var cartDb = db.Cart.Include(c => c.Produc).FirstOrDefault(u => u.UserName == username);
+
+                    if (cartDb != null)
+                    {
+                         
+                         var productToRemove = cartDb.Produc.FirstOrDefault(p => p.IdSneakers == productId);
+
+                         if (productToRemove != null)
+                         {
+                              
+                              cartDb.Produc.Remove(productToRemove);
+                              
+                              db.SaveChanges();
+                         }
+                    }
                }
           }
 

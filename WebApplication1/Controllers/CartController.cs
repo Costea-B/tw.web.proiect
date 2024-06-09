@@ -8,6 +8,7 @@ using WebAplication.BusinessLogics;
 using WebApplication1.Extension;
 using WebAplication.Domains.Entities.User;
 using WebApplication1.Models.User;
+using Microsoft.Ajax.Utilities;
 
 namespace WebApplication1.Controllers
 {
@@ -26,8 +27,8 @@ namespace WebApplication1.Controllers
         public static class GlobalData
         {
             public static List<Product> Products { get; set; } = new List<Product>();
-            public static float TotalPrice { get; set; }
-        }
+            public static decimal TotalPrice { get; set; }
+          }
 
 
         public ActionResult Shopping()
@@ -35,7 +36,7 @@ namespace WebApplication1.Controllers
             var user = System.Web.HttpContext.Current.GetMySessionObject();
             var produs = _cart.GetCartProducts(user.Username);
             GlobalData.Products = produs;
-            float totalPrice = produs.Sum(p => p.price);
+            decimal totalPrice = produs.Sum(p => p.price);
             GlobalData.TotalPrice = totalPrice;
             GlobalModel data = new GlobalModel
             {
@@ -47,6 +48,15 @@ namespace WebApplication1.Controllers
 
             return View(data);
         }
+
+          
+          public ActionResult DeletProductInCart(string productId)
+          {
+
+               var user = System.Web.HttpContext.Current.GetMySessionObject();
+               _cart.DeletProductInCartAction(user.Username, productId);
+               return RedirectToAction("Shopping");
+          }
 
     }
 }

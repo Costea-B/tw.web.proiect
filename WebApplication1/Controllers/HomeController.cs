@@ -198,7 +198,7 @@ namespace WebApplication1.Controllers
 
                };
                return View(data);
-          }          
+          }
 
 
           public ActionResult Sort(string subcategori, string categori)
@@ -206,6 +206,7 @@ namespace WebApplication1.Controllers
                var product = Request.QueryString["p"];
                var user = System.Web.HttpContext.Current.GetMySessionObject();
                var produse = GlobalData.Products.AsQueryable();
+
 
                if (!string.IsNullOrEmpty(categori))
                {

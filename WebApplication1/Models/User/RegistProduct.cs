@@ -12,7 +12,7 @@ namespace WebApplication1.Models.User
           public string name { get; set; }
           public string id { get; set; }
           public float size { get; set; }
-          public float price { get; set; }
+          public decimal price { get; set; }
           public int quantity { get; set; }
           public string description { get; set; }
           public Categori categori { get; set; }

@@ -12,5 +12,7 @@ namespace WebAplication.BusinessLogics.Interface
           List<Product> GetCartProducts(string name);
 
           void AddProductInCartAction(string userName, string productId);
+
+          void DeletProductInCartAction(string username, string productId);
      }
 }

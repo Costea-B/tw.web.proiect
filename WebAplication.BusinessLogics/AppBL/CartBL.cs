@@ -20,5 +20,10 @@ namespace WebAplication.BusinessLogics.AppBL
           {
                AddProductInCart(userName, productId);
           }
+
+          public void DeletProductInCartAction(string username, string productId)
+          {
+               DeletProductInCart(username, productId);
+          }
      }
 }
