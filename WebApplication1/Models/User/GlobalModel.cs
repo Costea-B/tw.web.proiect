@@ -11,6 +11,7 @@ namespace WebApplication1.Models.User
           public Product Product { get; set;  }
           public List<Users> Users { get; set; }
           public URole Level { get; set; }
-          
-     }
+          public float TotalPrice { get; set; }
+
+    }
 }
